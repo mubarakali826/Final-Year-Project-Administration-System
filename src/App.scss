@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// ===================  VARIABLES  ===================
+
+$bg: #b5c2ca;
+// $bg:#7c858b;
+$secondary: #f0f3f4;
+$primary: #081225;
+$primary-hover: #050c19;
+
+// ===================  GENERALS  ===================
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  color: $primary;
+}
+
+button {
+  background: $primary;
+  transition: 0.1s all ease-in-out;
+  color: $secondary;
+  &:hover {
+    background: $primary-hover;
+  }
+}
+body {
+  background-color: $bg;
+}
+
+// ===================  LOGIN & ROLES  ===================
+
+.loginContainer {
+  background-color: $bg;
+}
+.rolesIcon {
+  font-size: 40px;
+  transition: 0.2s all ease-in-out;
+}
+.icons-div:hover .rolesIcon {
+  font-size: 50px;
+  color: #0e435d;
+  
+}
+.icons-div:hover .icon-text {
+  color: #0e435d;
+}
+
+
+// ===================  SIDEBAR  ===================
+
+.Sidebar {
+  background-color: $secondary;
+  border: 2.5px solid #cbcbcb;
+  h2 {
+    color: $primary;
+  }
+  ul {
+    li {
+      padding: 12px;
+      padding-left: 18px;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 12px;
+        color: #5b5c5c;
+        &:hover {
+          color: #2f3131;
+        }
+      }
+    }
+    li.active{
+        background-color: $primary;
+        a{
+          color: $secondary;
+        }
+      }
+    }
+  }
+
+
+
+  // ===================  LOCAL USER  ===================
+  
+  
+  
+  // ===================  LOCAL HOME  ===================
+  
+  
+  .project-container{
+    background-color: $primary;
+    color: $secondary;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: 0.2s all ease-in-out;
+    
+    .project-name,.project-members,.project-tech{
+      transition: 0.2s all ease-in-out;
+    }
+    &:hover{
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 5), 0 6px 20px rgba(0, 0, 0, 0.9) inset;
+    }
+    &:hover .project-members{
+      color: #b5c2ca;
+      font-size: 1rem;
+    }
+    &:hover .project-name{
+      font-size: 1.5rem;
+      color: #fff;
+    }
+    &:hover .project-tech{
+      font-size: 1.1rem;
+      color: #b5c2ca;
+    }
+ .project-likes{
+
+    .heart-bg {
+      background: rgba(255, 192, 200, 0);
+      border-radius: 50%;
+      height: 45px;
+      width: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 100ms ease;
+      &:hover{
+        background: rgba(236, 137, 150, 0.3);
+      }
+    }
+    
+    .likes-count {
+      font-size: 1rem;
+      font-family: "Roboto", sans-serif;
+      color: #b5c2ca;
+      font-weight: 900;
+      margin-left: 4px;
+    }
+    .heart-icon{
+      height: 100px;
+      width: 100px;
+      background: url("./assets/images/heart.png");
+      cursor: pointer;
+      position: absolute;
+      background-position: left;
+    }
+    .heart-icon.liked{
+      animation: like-anim 0.7s steps(28) forwards;
+    }
+    @keyframes like-anim {
+      to {
+        background-position: right;
+      }
+    }
+   
+  }
+  }
+  
+  
+ 
+
+
+
+  // ===================  LOCAL DOCUMENTS  ===================
+  
+  .local-documents-container{
+    .local-inner-container{
+      background-color: $secondary;
+      color: $primary;
+      .project-name{
+        
+        color: $primary;
+      }
+    }
+  }
+
+
+
+
+
+  // ===================  LOCAL PROJECT OVERVIEW  ====================
+  .local-overview-container{
+    .beyond{
+      background: linear-gradient(to left, #0e435d9a, #5bb7a0);
+ 
+      .project-details{
+        height: calc(100% - 4rem);
+        background-color: $secondary;
+      }
+    }
+  }
