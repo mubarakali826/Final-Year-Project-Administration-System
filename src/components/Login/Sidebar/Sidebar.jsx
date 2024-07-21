@@ -8,11 +8,11 @@ import { MdHandshake } from "react-icons/md";
 import { useState } from "react";
 
 const Sidebar = () => {
-  // const [current, setCurrent] = useState("admin") ;
+  const [current, setCurrent] = useState("admin") ;
   // const [current, setCurrent] = useState("student");
-  const [current, setCurrent] = useState("supervisor");
+  // const [current, setCurrent] = useState("supervisor");
   return (
-    <div className="relative h-screen flex">
+    <div className="relative flex">
       <div className="fixed inset-y-0 left-[5%] Sidebar w-[20%] p-4 h-[85%] my-auto rounded-2xl pt-7">
         <h2 className="text-[1.2rem] font-semibold mb-6 ml-1">FYP Administration</h2>
         <hr className="w-[90%] m-auto border-t-[1.5px] border-gray-300" />

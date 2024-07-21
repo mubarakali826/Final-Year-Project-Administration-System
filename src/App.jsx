@@ -1,4 +1,5 @@
 import "./App.scss"
+import AdminHome from "./components/ADMIN/Home/AdminHome"
 import LocalDocuments from "./components/Local user/LocalDocuments"
 import LocalHome from "./components/Local user/LocalHome"
 import LocalOverview from "./components/Local user/LocalOverview"
@@ -11,10 +12,11 @@ return (
 <>
 {/* <Login/> */}
 {/* <Roles/>     */}
-{/* <Sidebar/> */}
+<AdminHome/>
+<Sidebar/>
 {/* <LocalHome/> */}
 {/* <LocalDocuments/> */}
-<LocalOverview/>
+{/* <LocalOverview/> */}
 </>
 )
 }

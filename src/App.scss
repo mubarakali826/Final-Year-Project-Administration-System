@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
 // ===================  VARIABLES  ===================
 
 $bg: #b5c2ca;
@@ -57,6 +75,8 @@ body {
 .Sidebar {
   background-color: $secondary;
   border: 2.5px solid #cbcbcb;
+  box-shadow: 0 2px 30px 3px #0812256c;
+
   h2 {
     color: $primary;
   }
@@ -186,10 +206,81 @@ body {
   .local-overview-container{
     .beyond{
       background: linear-gradient(to left, #0e435d9a, #5bb7a0);
- 
+      
       .project-details{
         height: calc(100% - 4rem);
         background-color: $secondary;
       }
     }
   }
+
+
+  
+  
+  // ===================  ADMIN   ====================
+
+  // ===================  ADMIN HOME  ====================
+  .adminHome {
+    background-color: $secondary;
+    box-shadow: 0 2px 30px 3px #0812256c;
+    
+    .inner-stat {
+        flex: 1;
+        padding: 1rem;
+        height: 100%;
+        cursor: pointer;
+        transition: 0.5s all ease-in-out;
+     
+        .dashboard-icon{
+          font-size: 2rem;
+          transition: 0.2s all ease-in-out;
+        }
+        .stat-number{
+          transition: 0.2s all ease-in-out;
+        }
+        .card-name{
+          transition: 0.2s all ease-in-out;
+        }
+        &:hover .dashboard-icon{
+        font-size: 2.5rem;
+        }
+        &:hover .stat-number{
+        font-size: 2.5rem;
+        }
+        &:hover .card-name{
+        font-size: 0.8rem;
+        }
+        .goto-arrow{
+          transition: 0.2s all ease-in;
+          color: #fff;
+        }
+        .goto-arrow.active{
+          transform: rotate(180deg);
+          opacity: 1;
+        }
+        &:nth-child(1) {
+            background: linear-gradient(to right, #c94b4b, #4b134f); 
+            box-shadow: 0 0 10px 0 #c94b4b, 0 0 10px 0 #4b134f;
+        }
+        
+        &:nth-child(2) {
+            background: linear-gradient(to right, #0f0c29, #302b63); 
+            box-shadow: 0 0 10px 0 #0f0c29, 0 0 10px 0 #302b63;
+        }
+        
+        &:nth-child(3) {
+            background: linear-gradient(to right, #3c3b3f, #605c3c); 
+            box-shadow: 0 0 10px 0 #3c3b3f, 0 0 10px 0#605c3c;
+        }
+        
+        &:nth-child(4) {
+            background: linear-gradient(to right, #cb356b, #bd3f32); 
+            box-shadow: 0 0 10px 0 #cb356b, 0 0 10px 0 #bd3f32;
+        }
+    }
+
+}
+
+.pi{
+  box-shadow: 0 0px 10px 0px #0812256c;
+}
