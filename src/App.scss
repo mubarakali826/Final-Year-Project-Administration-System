@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
     --chart-1: 12 76% 61%;
@@ -214,7 +215,6 @@ body {
     }
   }
 
-
   
   
   // ===================  ADMIN   ====================
@@ -281,6 +281,31 @@ body {
 
 }
 
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+.custom-scrollbar {
+  scrollbar-width:thin; 
+  scrollbar-color: rgba(3, 119, 119, 0.689) rgba(0, 128, 128, 0.137); 
+
+}
+
+
 .pi{
-  box-shadow: 0 0px 10px 0px #0812256c;
+  // box-shadow: 0 0 20px 0px #c94b4b3a, 0 0 20px 0 #4b134f3a;
+  .chart{
+    background-color: $secondary;
+    box-shadow: none;
+    border: none;
+  }
 }

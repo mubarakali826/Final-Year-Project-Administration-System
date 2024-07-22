@@ -18,11 +18,10 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 287, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 190, fill: "var(--color-other)" },
+  { browser: "active projects", visitors: 163, fill: "var(--color-chrome)" },
+  { browser: "completed projects", visitors: 23, fill: "var(--color-safari)" },
+  { browser: "unassigned students", visitors: 81, fill: "var(--color-firefox)" },
+  { browser: "In-house projects", visitors: 44, fill: "var(--color-edge)" },
 ]
 
 const chartConfig = {
@@ -57,14 +56,14 @@ const chartConfig = {
   }, [])
 
   return (
-    <Card className="flex flex-col ">
+    <Card className="flex flex-col chart">
       <CardHeader className="items-center pb-0  ">
-        <CardTitle>Pie Chart - Donut with Text</CardTitle>
+        <CardTitle>Projects Distribution</CardTitle>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[180px]"
+          className="mx-auto aspect-square max-h-[230px]"
         >
           <PieChart>
             <ChartTooltip
@@ -75,8 +74,8 @@ const chartConfig = {
               data={chartData}
               dataKey="visitors"
               nameKey="browser"
-              innerRadius={50}
-              strokeWidth={5}
+              innerRadius={60}
+              strokeWidth={10}
             >
               <Label
                 content={({ viewBox }) => {
@@ -111,14 +110,7 @@ const chartConfig = {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-        </div>
-        <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
-        </div>
-      </CardFooter>
+     
     </Card>
   )
 }
