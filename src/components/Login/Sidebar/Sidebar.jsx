@@ -18,13 +18,13 @@ const Sidebar = () => {
         <hr className="w-[90%] m-auto border-t-[1.5px] border-gray-300" />
         {current === "admin" ? (
           <ul className="mt-5 pl-1">
-            <li className="mb-2 rounded-full active">
+            <li className="mb-2 rounded-full ">
               <a href="/admin-home">
                 <FaHome />
                 Home
               </a>
             </li>
-            <li className="mb-2 rounded-full">
+            <li className="mb-2 rounded-full active">
               <a href="/admin-analytics">
                 <DiGoogleAnalytics />
                 Analytics
