@@ -15,7 +15,6 @@ const radar = () => {
     ];
  
   return (
-   
        <RadarChart height={250} width={250} 
             outerRadius="80%" data={data}>
             <PolarGrid />

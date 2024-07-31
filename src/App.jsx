@@ -9,6 +9,8 @@ import LocalOverview from './components/Local user/LocalOverview';
 import Login from './components/Login/Login';
 import Roles from './components/Login/Roles';
 import Sidebar from './components/Login/Sidebar/Sidebar';
+import ManageLogins from './components/ADMIN/Manage Logins/ManageLogins';
+import Broadcast from './components/ADMIN/Broadcast/Broadcast';
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
         <Route path="/roles" element={<Roles />} />
         <Route path="/admin/home" element={<><AdminHome /><Sidebar/></>} />
         <Route path="/admin/analytics" element={<><AdminAnalytics /><Sidebar/></>} />
+        <Route path="/admin/broadcast" element={<><Broadcast /><Sidebar/></>} />
+        <Route path="/admin/logins" element={<><ManageLogins /><Sidebar/></>} />
         <Route path="/local/home" element={<LocalHome />} />
         <Route path="/local/documents" element={<LocalDocuments />} />
         <Route path="/local/overview" element={<LocalOverview />} />
