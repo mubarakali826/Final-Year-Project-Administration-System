@@ -85,7 +85,7 @@ body {
     li {
       padding: 12px;
       padding-left: 18px;
-      a {
+      .link {
         display: flex;
         align-items: center;
         justify-content: start;
@@ -98,7 +98,7 @@ body {
     }
     li.active{
         background-color: $primary;
-        a{
+        .link{
           color: $secondary;
         }
       }
@@ -308,4 +308,13 @@ body {
     box-shadow: none;
     border: none;
   }
+}
+
+
+  // ===================  ADMIN ANALYTICS  ====================
+
+
+.adminAnalytics{
+  background-color: $secondary;
+  box-shadow: 0 2px 30px 3px #0812256c;
 }
