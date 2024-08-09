@@ -82,7 +82,7 @@ const File = () => {
           </defs>
         </svg>
       </span>
-      <p className="text">Documents</p>
+      <p className="text">Upload</p>
     </button>
   );
 };

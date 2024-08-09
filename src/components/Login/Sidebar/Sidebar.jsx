@@ -6,7 +6,7 @@ import { IoDocuments, IoChatboxEllipsesSharp } from "react-icons/io5";
 import { MdHandshake } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
+import headshot from "../../../assets/images/profile-pic (3) (1).png";
 const Sidebar = () => {
   const [current, setCurrent] = useState("admin");
   // const [current, setCurrent] = useState("student");
@@ -204,14 +204,21 @@ const Sidebar = () => {
           </ul>
         ) : null}
 
-        <div className="user flex items-center justify-center flex-col mt-6 gap-1">
+        <div className="user flex items-center justify-center flex-col mt-2 gap-[2px]">
           <div className="user_avatar">
-            <div className="w-[4rem] h-[4rem] flex items-center justify-center rounded-full border-2 border-white ">
-              <FaUsersGear />
+            <div className="w-[4.5rem] h-[4.5rem] flex items-center justify-center rounded-full border-2 border-white ">
+              <img src={headshot} alt="" className="h-full w-full" />
+              <div></div>
             </div>
           </div>
-          <div className="name font-semibold">name</div>
-          <div className="email text-gray-400 text-sm">email@gmail.com</div>
+          <div className="name font-semibold">Mubarak Ali</div>
+          <div className="email text-gray-400 text-[0.7rem]">kingjohn135251@gmail.com</div>
+          <Link
+            className="mt-1 p-1 px-4 rounded-md bg-[#68bd69] text-white text-[0.9rem]"
+            to={"/edit-profile"}
+          >
+            Edit 
+          </Link>
         </div>
       </div>
     </div>
