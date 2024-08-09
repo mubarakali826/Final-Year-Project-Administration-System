@@ -20,8 +20,8 @@ const radar = () => {
             <PolarGrid />
             <PolarAngleAxis dataKey="name" />
             <PolarRadiusAxis />
-            <Radar dataKey="x" stroke="red"
-                fill="red" fillOpacity={0.5} />
+            <Radar dataKey="x" stroke="teal"
+                fill="#021b48" fillOpacity={0.5} />
         </RadarChart>
   )
 }

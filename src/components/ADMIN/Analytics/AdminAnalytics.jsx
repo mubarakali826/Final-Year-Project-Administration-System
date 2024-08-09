@@ -21,7 +21,7 @@ const AdminAnalytics = () => {
               <div className="flex justify-center items-center mr-10 flex-col gap-2">
                 <div className="card h-[50%] w-[150%] rounded-md">
                 </div>
-                <button className="reports-btn p-3 rounded-lg text-sm">
+                <button className="reports-btn p-3 rounded-lg text-sm shadow-lg">
                   Generate Reports
                 </button>
               </div>

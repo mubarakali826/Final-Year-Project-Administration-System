@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --chart-1: 12 76% 61%;
@@ -40,14 +39,6 @@ $primary-hover: #050c19;
   color: $primary;
 }
 
-button {
-  background: $primary;
-  transition: 0.1s all ease-in-out;
-  color: $secondary;
-  &:hover {
-    background: $primary-hover;
-  }
-}
 body {
   background-color: $bg;
 }
@@ -56,6 +47,14 @@ body {
 
 .loginContainer {
   background-color: $bg;
+  .login-btn{
+    background-color: $primary;
+    color: $secondary;
+    &:hover{
+      background-color: $primary-hover;
+      color: $secondary;
+    }
+  }
 }
 .rolesIcon {
   font-size: 40px;
@@ -64,12 +63,10 @@ body {
 .icons-div:hover .rolesIcon {
   font-size: 50px;
   color: #0e435d;
-  
 }
 .icons-div:hover .icon-text {
   color: #0e435d;
 }
-
 
 // ===================  SIDEBAR  ===================
 
@@ -96,50 +93,47 @@ body {
         }
       }
     }
-    li.active{
-        background-color: $primary;
-        .link{
-          color: $secondary;
-        }
+    li.active {
+      background-color: $primary;
+      .link {
+        color: $secondary;
       }
     }
   }
+}
 
+// ===================  LOCAL USER  ===================
 
+// ===================  LOCAL HOME  ===================
 
-  // ===================  LOCAL USER  ===================
-  
-  
-  
-  // ===================  LOCAL HOME  ===================
-  
-  
-  .project-container{
-    background-color: $primary;
-    color: $secondary;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.1);
+.project-container {
+  background-color: $primary;
+  color: $secondary;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.2s all ease-in-out;
+
+  .project-name,
+  .project-members,
+  .project-tech {
     transition: 0.2s all ease-in-out;
-    
-    .project-name,.project-members,.project-tech{
-      transition: 0.2s all ease-in-out;
-    }
-    &:hover{
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 5), 0 6px 20px rgba(0, 0, 0, 0.9) inset;
-    }
-    &:hover .project-members{
-      color: #b5c2ca;
-      font-size: 1rem;
-    }
-    &:hover .project-name{
-      font-size: 1.5rem;
-      color: #fff;
-    }
-    &:hover .project-tech{
-      font-size: 1.1rem;
-      color: #b5c2ca;
-    }
- .project-likes{
-
+  }
+  &:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 5),
+      0 6px 20px rgba(0, 0, 0, 0.9) inset;
+  }
+  &:hover .project-members {
+    color: #b5c2ca;
+    font-size: 1rem;
+  }
+  &:hover .project-name {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  &:hover .project-tech {
+    font-size: 1.1rem;
+    color: #b5c2ca;
+  }
+  .project-likes {
     .heart-bg {
       background: rgba(255, 192, 200, 0);
       border-radius: 50%;
@@ -149,11 +143,11 @@ body {
       align-items: center;
       justify-content: center;
       transition: all 100ms ease;
-      &:hover{
+      &:hover {
         background: rgba(236, 137, 150, 0.3);
       }
     }
-    
+
     .likes-count {
       font-size: 1rem;
       font-family: "Roboto", sans-serif;
@@ -161,7 +155,7 @@ body {
       font-weight: 900;
       margin-left: 4px;
     }
-    .heart-icon{
+    .heart-icon {
       height: 100px;
       width: 100px;
       background: url("./assets/images/heart.png");
@@ -169,7 +163,7 @@ body {
       position: absolute;
       background-position: left;
     }
-    .heart-icon.liked{
+    .heart-icon.liked {
       animation: like-anim 0.7s steps(28) forwards;
     }
     @keyframes like-anim {
@@ -177,108 +171,94 @@ body {
         background-position: right;
       }
     }
-   
   }
-  }
-  
-  
- 
+}
 
+// ===================  LOCAL DOCUMENTS  ===================
 
-
-  // ===================  LOCAL DOCUMENTS  ===================
-  
-  .local-documents-container{
-    .local-inner-container{
-      background-color: $secondary;
-      color: $primary;
-      .project-name{
-        
-        color: $primary;
-      }
-    }
-  }
-
-
-
-
-
-  // ===================  LOCAL PROJECT OVERVIEW  ====================
-  .local-overview-container{
-    .beyond{
-      background: linear-gradient(to left, #0e435d9a, #5bb7a0);
-      
-      .project-details{
-        height: calc(100% - 4rem);
-        background-color: $secondary;
-      }
-    }
-  }
-
-  
-  
-  // ===================  ADMIN   ====================
-
-  // ===================  ADMIN HOME  ====================
-  .adminHome {
+.local-documents-container {
+  .local-inner-container {
     background-color: $secondary;
-    box-shadow: 0 2px 30px 3px #0812256c;
-    
-    .inner-stat {
-        flex: 1;
-        padding: 1rem;
-        height: 100%;
-        cursor: pointer;
-        transition: 0.5s all ease-in-out;
-     
-        .dashboard-icon{
-          font-size: 2rem;
-          transition: 0.2s all ease-in-out;
-        }
-        .stat-number{
-          transition: 0.2s all ease-in-out;
-        }
-        .card-name{
-          transition: 0.2s all ease-in-out;
-        }
-        &:hover .dashboard-icon{
-        font-size: 2.5rem;
-        }
-        &:hover .stat-number{
-        font-size: 2.5rem;
-        }
-        &:hover .card-name{
-        font-size: 0.8rem;
-        }
-        .goto-arrow{
-          transition: 0.2s all ease-in;
-          color: #fff;
-        }
-        .goto-arrow.active{
-          transform: rotate(180deg);
-          opacity: 1;
-        }
-        &:nth-child(1) {
-            background: linear-gradient(to right, #c94b4b, #4b134f); 
-            box-shadow: 0 0 10px 0 #c94b4b, 0 0 10px 0 #4b134f;
-        }
-        
-        &:nth-child(2) {
-            background: linear-gradient(to right, #0f0c29, #302b63); 
-            box-shadow: 0 0 10px 0 #0f0c29, 0 0 10px 0 #302b63;
-        }
-        
-        &:nth-child(3) {
-            background: linear-gradient(to right, #3c3b3f, #605c3c); 
-            box-shadow: 0 0 10px 0 #3c3b3f, 0 0 10px 0#605c3c;
-        }
-        
-        &:nth-child(4) {
-            background: linear-gradient(to right, #cb356b, #bd3f32); 
-            box-shadow: 0 0 10px 0 #cb356b, 0 0 10px 0 #bd3f32;
-        }
+    color: $primary;
+    .project-name {
+      color: $primary;
+    }
+  }
+}
+
+// ===================  LOCAL PROJECT OVERVIEW  ====================
+.local-overview-container {
+  .beyond {
+    background: linear-gradient(to left, #0e435d9a, #5bb7a0);
+
+    .project-details {
+      height: calc(100% - 4rem);
+      background-color: $secondary;
+    }
+  }
+}
+
+// ===================  ADMIN   ====================
+
+// ===================  ADMIN HOME  ====================
+.adminHome {
+  background-color: $secondary;
+  box-shadow: 0 2px 30px 3px #0812256c;
+
+  .inner-stat {
+    flex: 1;
+    padding: 1rem;
+    height: 100%;
+    cursor: pointer;
+    transition: 0.5s all ease-in-out;
+
+    .dashboard-icon {
+      font-size: 2rem;
+      transition: 0.2s all ease-in-out;
+    }
+    .stat-number {
+      transition: 0.2s all ease-in-out;
+    }
+    .card-name {
+      transition: 0.2s all ease-in-out;
+    }
+    &:hover .dashboard-icon {
+      font-size: 2.5rem;
+    }
+    &:hover .stat-number {
+      font-size: 2.5rem;
+    }
+    &:hover .card-name {
+      font-size: 0.8rem;
+    }
+    .goto-arrow {
+      transition: 0.2s all ease-in;
+      color: #fff;
+    }
+    .goto-arrow.active {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+    &:nth-child(1) {
+      background: linear-gradient(to right, #c94b4b, #4b134f);
+      box-shadow: 0 0 10px 0 #c94b4b, 0 0 10px 0 #4b134f;
     }
 
+    &:nth-child(2) {
+      background: linear-gradient(to right, #0f0c29, #302b63);
+      box-shadow: 0 0 10px 0 #0f0c29, 0 0 10px 0 #302b63;
+    }
+
+    &:nth-child(3) {
+      background: linear-gradient(to right, #3c3b3f, #605c3c);
+      box-shadow: 0 0 10px 0 #3c3b3f, 0 0 10px 0#605c3c;
+    }
+
+    &:nth-child(4) {
+      background: linear-gradient(to right, #cb356b, #bd3f32);
+      box-shadow: 0 0 10px 0 #cb356b, 0 0 10px 0 #bd3f32;
+    }
+  }
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -295,51 +275,51 @@ body {
   border-radius: 20px;
 }
 .custom-scrollbar {
-  scrollbar-width:thin; 
-  scrollbar-color: rgba(3, 119, 119, 0.689) rgba(0, 128, 128, 0.137); 
-
+  scrollbar-width: thin;
+  scrollbar-color: rgba(3, 119, 119, 0.689) rgba(0, 128, 128, 0.137);
 }
 
-
-.pi{
+.pi {
   // box-shadow: 0 0 20px 0px #c94b4b3a, 0 0 20px 0 #4b134f3a;
-  .chart{
+  .chart {
     background-color: $secondary;
     box-shadow: none;
     border: none;
   }
 }
 
+// ===================  ADMIN ANALYTICS  ====================
 
-  // ===================  ADMIN ANALYTICS  ====================
-  
-  
-  .adminAnalytics{
-    background-color: $secondary;
-    box-shadow: 0 2px 30px 3px #0812256c;
-    .reports-btn {
-      width: 10em;
-      height: 2.3em;
-      margin: 0.5em;
-      background: $primary;
-      color: white;
-      border: none;
-      border-radius: 0.625em;
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-    }
-    
-    button:hover {
-      color: $primary;
-    }
-    
-    button:after {
-      content: "";
-      background: white;
+.adminAnalytics {
+  background-color: $secondary;
+  box-shadow: 0 2px 30px 3px #0812256c;
+  .reports-btn {
+    width: 10em;
+    height: 3em;
+    margin: 0.5em;
+    background: $primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $secondary;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border: 1px solid $primary;
+  }
+
+  button:hover {
+    color: $primary;
+  }
+
+  button:after {
+    content: "";
+    background: $secondary;
     position: absolute;
     z-index: -1;
     left: -20%;
@@ -349,31 +329,267 @@ body {
     transform: skewX(-45deg) scale(0, 1);
     transition: all 0.5s;
   }
-  
+
   button:hover:after {
     transform: skewX(-45deg) scale(1, 1);
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
   }
 }
-.card{
+.card {
   /* From https://css.glass */
   background: rgba(251, 0, 0, 0.61);
-  background: linear-gradient(90deg, rgba(251, 0, 0, 0.626) 22%, rgba(117, 13, 60, 0.616) 90%);
-  box-shadow: 0 0 4px 0 #c94b4b, 0 0 4px 0 #4b134f;
-  backdrop-filter: blur(9.7px);
+  background: linear-gradient(
+    90deg,
+    #081225bc 22%,
+    rgba(0, 128, 128, 0.591) 90%
+  );
+  box-shadow: 0 0 4px 0 #08122599, 0 0 4px 0 rgba(0, 128, 128, 0.591);
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(9.7px);
 }
 
-
-
 // ===================  ADMIN BROADCAST  ====================
-.Broadcast{
+.Broadcast {
   background-color: $secondary;
   box-shadow: 0 2px 30px 3px #0812256c;
   color: $primary;
-  .Broadcast-to{
+  .Broadcast-to {
     background-color: $primary;
     color: $secondary;
+  }
+}
+
+.broadcast-audience {
+  background-color: $primary;
+  color: $secondary;
+}
+
+.filter {
+  &:hover {
+    color: $primary;
+  }
+}
+
+.filter-check {
+  accent-color: #b5c2ca;
+}
+
+.aud {
+  color: $secondary;
+}
+
+.Broadcast {
+  .broadcast-btn {
+    width: 10em;
+    height: 3em;
+    margin: 0.5em;
+    background: $secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $primary;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border: 1px solid $secondary;
+  }
+
+  .broadcast-btn:hover {
+    color: $secondary;
+  }
+
+  .broadcast-btn:after {
+    content: "";
+    background: $primary;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+  }
+
+  .broadcast-btn:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+}
+
+// ===================  MANAGE LOGINS  ====================
+
+.manage-logins {
+  background-color: $secondary;
+  box-shadow: 0 2px 30px 3px #0812256c;
+  .buttons {
+    /* From Uiverse.io by vinodjangid07 */
+    .del-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgb(20, 20, 20);
+      border: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+      cursor: pointer;
+      transition-duration: 0.3s;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .svgIcon {
+      width: 17px;
+      transition-duration: 0.3s;
+    }
+
+    .svgIcon path {
+      fill: white;
+    }
+
+    .del-button:hover {
+      width: 80px;
+      border-radius: 50px;
+      transition-duration: 0.3s;
+      background-color: #d34e4a;
+      align-items: center;
+    }
+
+    .del-button:hover .svgIcon {
+      width: 40px;
+      transition-duration: 0.3s;
+      transform: translateY(60%);
+    }
+
+    .del-button::before {
+      position: absolute;
+      top: -20px;
+      content: "Delete";
+      color: white;
+      transition-duration: 0.3s;
+      font-size: 2px;
+    }
+
+    .del-button:hover::before {
+      font-size: 13px;
+      opacity: 1;
+      transform: translateY(30px);
+      transition-duration: 0.3s;
+    }
+    /* From Uiverse.io by aaronross1 */ 
+.edit-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+}
+
+.edit-svgIcon {
+  width: 17px;
+  transition-duration: 0.3s;
+}
+
+.edit-svgIcon path {
+  fill: white;
+}
+
+.edit-button:hover {
+  width: 80px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: #68bd69;
+  align-items: center;
+}
+
+.edit-button:hover .edit-svgIcon {
+  width: 20px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.edit-button::before {
+  display: none;
+  content: "Edit";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.edit-button:hover::before {
+  display: block;
+  padding-right: 10px;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+}
+
+  }
+  .generate-login-btn {
+    width: 10em;
+    height: 3em;
+    margin: 0.5em;
+    background: $primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $secondary;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border: 1px solid $primary;
+  }
+  .generate-login-btn:hover {
+    color: $primary;
+  }
+
+  .generate-login-btn:after {
+    content: "";
+    background: $secondary;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+  }
+
+  .generate-login-btn:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
   }
 }

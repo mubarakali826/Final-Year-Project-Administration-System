@@ -14,7 +14,7 @@ const Login = () => {
             <label className="block text-gray-700">Password</label>
             <input type="password" className="w-full p-2 border border-gray-300 rounded mt-1" />
           </div>
-          <button className="w-full p-2 rounded mt-3 ">Login</button>
+          <button className="w-full p-2 rounded mt-3 login-btn">Login</button>
         </form>
       </div>
     </div>
