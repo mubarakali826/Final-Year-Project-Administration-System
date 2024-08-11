@@ -10,8 +10,8 @@
     z-index: 1;
     overflow: hidden;
     border: 1px solid;
-    transition: all 0.3s ease; /* Smooth transition for all properties */
-  
+    transition: all 0.3s ease; 
+    
     &:hover {
       color: inherit; /* This ensures text color will change dynamically */
     }

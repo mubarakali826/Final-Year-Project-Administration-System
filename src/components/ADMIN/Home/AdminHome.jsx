@@ -7,13 +7,16 @@ import { FaCircleArrowLeft } from "react-icons/fa6";
 import PiChart from "./PiChart";
 import RecentActivities from "./RecentActivities";
 import QuickLinks from "./QuickLinks";
+import { Link } from "react-router-dom";
 const AdminHome = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   return (
     <div className="h-screen flex items-center">
       <div className="adminHome gap-4 h-[85%] w-[69%] ml-[26%] rounded-2xl p-8 flex flex-col">
         <div className="number-stats flex gap-4 h-[130px]">
-          <div
+          <Link
+            to="/admin/projects"
+            state={{ card: "active" }} // Pass the card name here
             className="inner-stat rounded-lg relative duration-500"
             onMouseEnter={() => setHoveredCard(1)}
             onMouseLeave={() => setHoveredCard(null)}
@@ -31,15 +34,17 @@ const AdminHome = () => {
                 163
               </div>
             </div>
-          </div>
-          <div
-            className="inner-stat rounded-lg relative"
+          </Link>
+          <Link
+            to="/admin/projects"
+            state={{ card: "completed" }} // Pass the card name here
+            className="inner-stat rounded-lg relative duration-500"
             onMouseEnter={() => setHoveredCard(2)}
             onMouseLeave={() => setHoveredCard(null)}
           >
             <FaCircleArrowLeft
               className={`goto-arrow absolute right-4 top-[15%] text-white transition-opacity duration-300 ${
-                hoveredCard === 2 ? "opacity-100  rotate-180" : "opacity-0"
+                hoveredCard === 2 ? "opacity-100 rotate-180" : "opacity-0"
               }`}
               size={20}
             />
@@ -52,9 +57,11 @@ const AdminHome = () => {
                 23
               </div>
             </div>
-          </div>
-          <div
-            className="inner-stat rounded-lg font-bold relative"
+          </Link>
+          <Link
+            to="/admin/projects"
+            state={{ card: "unassigned" }} // Pass the card name here
+            className="inner-stat rounded-lg relative duration-500"
             onMouseEnter={() => setHoveredCard(3)}
             onMouseLeave={() => setHoveredCard(null)}
           >
@@ -73,9 +80,11 @@ const AdminHome = () => {
                 81
               </div>
             </div>
-          </div>
-          <div
-            className="inner-stat rounded-lg font-bold relative"
+          </Link>
+          <Link
+            to="/admin/projects"
+            state={{ card: "inhouse" }} // Pass the card name here
+            className="inner-stat rounded-lg relative duration-500"
             onMouseEnter={() => setHoveredCard(4)}
             onMouseLeave={() => setHoveredCard(null)}
           >
@@ -94,7 +103,7 @@ const AdminHome = () => {
                 44
               </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         <div className="home-bottom flex rounded-lg max-h-50 ">
@@ -102,10 +111,10 @@ const AdminHome = () => {
             <PiChart />
           </div>
           <div className="recent-activities">
-           <RecentActivities/>
+            <RecentActivities />
           </div>
           <div className="quick-links">
-           <QuickLinks/>
+            <QuickLinks />
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ import Sidebar from './components/Login/Sidebar/Sidebar';
 import ManageLogins from './components/ADMIN/Manage Logins/ManageLogins';
 import Broadcast from './components/ADMIN/Broadcast/Broadcast';
 import EditProfile from './components/Login/Sidebar/EditProfile';
+import Projects from './components/ADMIN/Projects/Projects';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/admin/analytics" element={<><AdminAnalytics /><Sidebar/></>} />
         <Route path="/admin/broadcast" element={<><Broadcast /><Sidebar/></>} />
         <Route path="/admin/logins" element={<><ManageLogins /><Sidebar/></>} />
+        <Route path="/admin/projects" element={<><Projects/><Sidebar/></>} />
         <Route path="/edit-profile" element={<><EditProfile /><Sidebar/></>} />
         <Route path="/local/home" element={<LocalHome />} />
         <Route path="/local/documents" element={<LocalDocuments />} />
