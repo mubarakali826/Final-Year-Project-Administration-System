@@ -2,17 +2,37 @@ import { FaHome, FaProjectDiagram } from "react-icons/fa";
 import { DiGoogleAnalytics } from "react-icons/di";
 import { PiBroadcastBold } from "react-icons/pi";
 import { FaUsersGear } from "react-icons/fa6";
-import { IoDocuments, IoChatboxEllipsesSharp } from "react-icons/io5";
-import { MdHandshake } from "react-icons/md";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import headshot from "../../../assets/images/profile-pic (3) (1).png";
+import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useDispatch,useSelector } from "react-redux";
 const Sidebar = () => {
-  const [current, setCurrent] = useState("admin");
-  // const [current, setCurrent] = useState("student");
-  // const [current, setCurrent] = useState("supervisor");
-
+  const location = useLocation();
   const [selectedItem, setSelectedItem] = useState(1);
+  const name = useSelector((state) => state.user.name)
+  const email = useSelector((state) => state.user.email)
+  const photoUrl = useSelector((state) => state.user.photoUrl)
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/admin/home':
+        setSelectedItem(1);
+        break;
+      case '/admin/analytics':
+        setSelectedItem(2);
+        break;
+      case '/admin/broadcast':
+        setSelectedItem(3);
+        break;
+      case '/admin/logins':
+        setSelectedItem(4);
+        break;
+      case '/edit-profile':
+        setSelectedItem(5);
+        break;
+      default:
+        setSelectedItem(1); // Default to Home if path doesn't match
+    }
+  }, [location.pathname]);
 
   return (
     <div className="relative flex">
@@ -21,198 +41,73 @@ const Sidebar = () => {
           FYP Administration
         </h2>
         <hr className="w-[90%] m-auto border-t-[1.5px] border-gray-300" />
-        {current === "admin" ? (
-          <ul className="mt-5 pl-1 ">
-            <li
-              className={`mb-2 rounded-full ${
-                current === "admin" && selectedItem === 1 ? "active" : ""
-              }`}
+        <ul className="mt-5 pl-1 ">
+          <li
+            className={`mb-2 rounded-full ${
+              selectedItem === 1 ? "active" : ""
+            }`}
+          >
+            <Link
+              to="/admin/home"
+              className="flex items-center link"
+              // onClick={() => setSelectedItem(1)}
             >
-              <Link
-                to="/admin/home"
-                className="flex items-center link"
-                onClick={() => setSelectedItem(1)}
-              >
-                <FaHome />
-                <span className="ml-2">Home</span>
-              </Link>
-            </li>
-            <li
-              className={`mb-2 rounded-full ${
-                current === "admin" && selectedItem === 2 ? "active" : ""
-              }`}
+              <FaHome />
+              <span className="ml-2">Home</span>
+            </Link>
+          </li>
+          <li
+            className={`mb-2 rounded-full ${
+              selectedItem === 2 ? "active" : ""
+            }`}
+          >
+            <Link
+              to="/admin/analytics"
+              className="link flex items-center"
+              // onClick={() => setSelectedItem(2)}
             >
-              <Link
-                to="/admin/analytics"
-                className="link flex items-center"
-                onClick={() => setSelectedItem(2)}
-              >
-                <DiGoogleAnalytics />
-                <span className="ml-2">Analytics</span>
-              </Link>
-            </li>
-            <li
-              className={`mb-2 rounded-full ${
-                current === "admin" && selectedItem === 3 ? "active" : ""
-              }`}
+              <DiGoogleAnalytics />
+              <span className="ml-2">Analytics</span>
+            </Link>
+          </li>
+          <li
+            className={`mb-2 rounded-full ${
+              selectedItem === 3 ? "active" : ""
+            }`}
+          >
+            <Link
+              to="/admin/broadcast"
+              className="link flex items-center"
+              // onClick={() => setSelectedItem(3)}
             >
-              <Link
-                to="/admin/broadcast"
-                className="link flex items-center"
-                onClick={() => setSelectedItem(3)}
-              >
-                <PiBroadcastBold />
-                <span className="ml-2">Broadcast</span>
-              </Link>
-            </li>
-            <li
-              className={`mb-2 rounded-full ${
-                current === "admin" && selectedItem === 4 ? "active" : ""
-              }`}
+              <PiBroadcastBold />
+              <span className="ml-2">Broadcast</span>
+            </Link>
+          </li>
+          <li
+            className={`mb-2 rounded-full ${
+              selectedItem === 4 ? "active" : ""
+            }`}
+          >
+            <Link
+              to="/admin/logins"
+              className="link flex items-center"
+              // onClick={() => setSelectedItem(4)}
             >
-              <Link
-                to="/admin/logins"
-                className="link flex items-center"
-                onClick={() => setSelectedItem(4)}
-              >
-                <FaUsersGear />
-                <span className="ml-2">Manage Logins</span>
-              </Link>
-            </li>
-          </ul>
-        ) : current === "student" ? (
-          <ul className="mt-5 pl-1">
-            <li
-              className={`mb-2 rounded-full ${
-                current === "student" && selectedItem === 1 ? "active" : ""
-              }`}
-            >
-              <Link
-                to="/student/home"
-                className="link flex items-center"
-                onClick={() => setSelectedItem(1)}
-              >
-                <FaHome />
-                <span className="ml-2">Home</span>
-              </Link>
-            </li>
-            <li
-              className={`mb-2 rounded-full ${
-                current === "student" && selectedItem === 2 ? "active" : ""
-              }`}
-            >
-              {" "}
-              <Link
-                to="/student/documents"
-                className="link flex items-center"
-                onClick={() => setSelectedItem(2)}
-              >
-                <IoDocuments />
-                <span className="ml-2">Submit Documents</span>
-              </Link>
-            </li>
-            <li
-              className={`mb-2 rounded-full ${
-                current === "student" && selectedItem === 3 ? "active" : ""
-              }`}
-            >
-              {" "}
-              <Link
-                to="/student/meetings"
-                className="link flex items-center"
-                onClick={() => setSelectedItem(3)}
-              >
-                <MdHandshake />
-                <span className="ml-2">Meetings</span>
-              </Link>
-            </li>
-            <li
-              className={`mb-2 rounded-full ${
-                current === "student" && selectedItem === 4 ? "active" : ""
-              }`}
-            >
-              {" "}
-              <Link
-                to="/student/chat"
-                className="link flex items-center"
-                onClick={() => setSelectedItem(4)}
-              >
-                <IoChatboxEllipsesSharp />
-                <span className="ml-2">Chat</span>
-              </Link>
-            </li>
-          </ul>
-        ) : current === "supervisor" ? (
-          <ul className="mt-5 pl-1">
-            <li
-              className={`mb-2 rounded-full ${
-                current === "supervisor" && selectedItem === 1 ? "active" : ""
-              }`}
-            >
-              {" "}
-              <Link
-                to="/supervisor/home"
-                className="link flex items-center"
-                onClick={() => setSelectedItem(1)}
-              >
-                <FaHome />
-                <span className="ml-2">Home</span>
-              </Link>
-            </li>
-            <li
-              className={`mb-2 rounded-full ${
-                current === "supervisor" && selectedItem === 2 ? "active" : ""
-              }`}
-            >
-              <Link
-                to="/supervisor/projects"
-                className="link flex items-center"
-                onClick={() => setSelectedItem(2)}
-              >
-                <FaProjectDiagram />
-                <span className="ml-2">Manage Projects</span>
-              </Link>
-            </li>
-            <li
-              className={`mb-2 rounded-full ${
-                current === "supervisor" && selectedItem === 3 ? "active" : ""
-              }`}
-            >
-              <Link
-                to="/supervisor/documents"
-                className="link flex items-center"
-                onClick={() => setSelectedItem(3)}
-              >
-                <IoDocuments />
-                <span className="ml-2">Manage Documents</span>
-              </Link>
-            </li>
-            <li
-              className={`mb-2 rounded-full ${
-                current === "supervisor" && selectedItem === 4 ? "active" : ""
-              }`}
-            >
-              <Link
-                to="/supervisor/chat"
-                className="link flex items-center"
-                onClick={() => setSelectedItem(4)}
-              >
-                <IoChatboxEllipsesSharp />
-                <span className="ml-2">Chat</span>
-              </Link>
-            </li>
-          </ul>
-        ) : null}
-
+              <FaUsersGear />
+              <span className="ml-2">Manage Logins</span>
+            </Link>
+          </li>
+        </ul>
         <div className="user flex items-center justify-center flex-col mt-2 gap-[2px]">
           <div className="user_avatar">
             <div className="w-[4.5rem] h-[4.5rem] flex items-center justify-center rounded-full border-2 border-white ">
-              <img src={headshot} alt="" className="h-full w-full" />
+              <img src={photoUrl} alt="" className="h-full w-full" />
               <div></div>
             </div>
           </div>
-          <div className="name font-semibold">Mubarak Ali</div>
-          <div className="email text-gray-400 text-[0.7rem]">kingjohn135251@gmail.com</div>
+          <div className="name font-semibold">{name}</div>
+          <div className="email text-gray-400 text-[0.7rem]">{email}</div>
           <Link
             className="mt-1 p-1 px-4 rounded-md bg-[#68bd69] text-white text-[0.9rem]"
             to={"/edit-profile"}

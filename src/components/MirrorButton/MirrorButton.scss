@@ -1,0 +1,35 @@
+.reports-btn {
+    margin: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border: 1px solid;
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+  
+    &:hover {
+      color: inherit; /* This ensures text color will change dynamically */
+    }
+  
+    .hover-bg {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: -20%;
+      right: -20%;
+      top: 0;
+      bottom: 0;
+      transform: skewX(-45deg) scale(0, 1);
+      transition: all 0.5s;
+    }
+  
+    &:hover .hover-bg {
+      transform: skewX(-45deg) scale(1, 1);
+    }
+  }
+  

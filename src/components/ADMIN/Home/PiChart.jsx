@@ -99,7 +99,7 @@ const chartConfig = {
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground"
                         >
-                          Visitors
+                          projects
                         </tspan>
                       </text>
                     )

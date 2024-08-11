@@ -4,6 +4,7 @@ import Radar from "./Radar";
 import React from "react";
 import { MdBugReport, MdReportGmailerrorred } from "react-icons/md";
 import QuickLinks from "../Home/QuickLinks";
+import MirrorButton from "@/components/MirrorButton/MirrorButton";
 
 const AdminAnalytics = () => {
   return (
@@ -21,9 +22,7 @@ const AdminAnalytics = () => {
               <div className="flex justify-center items-center mr-10 flex-col gap-2">
                 <div className="card h-[50%] w-[150%] rounded-md">
                 </div>
-                <button className="reports-btn p-3 rounded-lg text-sm shadow-lg">
-                  Generate Reports
-                </button>
+              <MirrorButton height={3} width={10} text={"Generate Reports"} colorScheme={"secondary"}/>
               </div>
             </div>
           </div>

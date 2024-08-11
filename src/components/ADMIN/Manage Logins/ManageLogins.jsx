@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EditLoginDialog from "./EditLoginDialog"; // Import the Dialog component
 import File from "../Broadcast/File";
 import { RxCross2 } from "react-icons/rx";
+import MirrorButton from "@/components/MirrorButton/MirrorButton";
 
 const ManageLogins = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,6 +20,7 @@ const ManageLogins = () => {
 
   const handleGenerateLoginClick = () => {
     setIsGenerateLoginVisible(!isGenerateLoginVisible);
+    console.log(isGenerateLoginVisible);
   };
 
   const handleEditLogin = (id) => {
@@ -77,14 +79,16 @@ const ManageLogins = () => {
           user.rollNumber.toLowerCase().includes(searchQuery.toLowerCase())))
   );
 
-  console.log("Filtered Users:", filteredUsers); // Debugging: Check filtered users
+  // console.log("Filtered Users:", filteredUsers); // Debugging: Check filtered users
 
   return (
     <div className="h-screen flex items-center">
       {isGenerateLoginVisible ? (
         <div className="generate-logins gap-4 h-[85%] w-[69%] ml-[26%] rounded-2xl p-[3rem] flex flex-col items-center justify-center bg-gray-100">
-          <div className="upload-div h-full w-full p-[15%] flex flex-col items-center rounded-lg relative">
-          <span className="absolute top-3 right-3 cursor-pointer"><RxCross2 size={25} onClick={handleGenerateLoginClick}/></span>
+          <div className="upload-div h-full w-full p-[10%] flex flex-col rounded-lg relative justify-center gap-2 items-center">
+            <span className="absolute top-3 right-3 cursor-pointer">
+              <RxCross2 size={25} onClick={handleGenerateLoginClick} />
+            </span>
             <h2 className="text-xl font-semibold mb-4">Upload Excel File</h2>
             <p className="text-gray-600 mb-4">
               Please upload a file in Excel format (e.g., .xlsx)
@@ -92,9 +96,12 @@ const ManageLogins = () => {
 
             <File />
 
-            <button className="submit-btn p-3 rounded-lg text-sm shadow-lg mt-10">
-              Submit
-            </button>
+            <MirrorButton
+              height={2.5}
+              width={8}
+              text={"Submit"}
+              colorScheme={"primary"}
+            />
           </div>
         </div>
       ) : (
@@ -111,8 +118,8 @@ const ManageLogins = () => {
               <button
                 className={`px-4 py-2 rounded-md ${
                   activeTab === "student"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200"
+                    ? "bg-blue-500 text-white hover:bg-blue-600"
+                    : "bg-gray-200 hover:bg-gray-300"
                 }`}
                 onClick={() => handleTabChange("student")}
               >
@@ -121,8 +128,8 @@ const ManageLogins = () => {
               <button
                 className={`px-4 py-2 rounded-md ${
                   activeTab === "supervisor"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200"
+                    ? "bg-blue-500 text-white hover:bg-blue-600"
+                    : "bg-gray-200 hover:bg-gray-300"
                 }`}
                 onClick={() => handleTabChange("supervisor")}
               >
@@ -167,13 +174,16 @@ const ManageLogins = () => {
             )}
           </div>
 
-          <div className="mt-4 flex items-center justify-end">
-            <button
-              onClick={handleGenerateLoginClick}
-              className="generate-login-btn p-3 rounded-lg text-sm shadow-lg bg-blue-500 text-white"
-            >
-              Generate Logins
-            </button>
+          <div className="mt-4 flex items-center justify-end"
+          onClick={handleGenerateLoginClick}
+          >
+            <MirrorButton
+              height={3}
+              width={10}
+              text={"Generate Logins"}
+              colorScheme={"secondary"}
+              event={handleGenerateLoginClick}
+            />
           </div>
         </div>
       )}

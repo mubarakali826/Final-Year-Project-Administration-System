@@ -3,6 +3,7 @@ import "./checkbox.scss";
 import { HiSpeakerphone } from "react-icons/hi";
 import { Textarea } from "@/components/ui/textarea";
 import File from "./File";
+import MirrorButton from "@/components/MirrorButton/MirrorButton";
 
 const Broadcast = () => {
   const [showStudents, setShowStudents] = useState(true);
@@ -58,6 +59,7 @@ const Broadcast = () => {
                 <input
                   id="ch1"
                   type="checkbox"
+                  className="filter-check"
                   checked={showStudents}
                   onChange={handleStudentsChange}
                 />
@@ -127,9 +129,8 @@ const Broadcast = () => {
                       <p className="text-white text-sm">Select File if any</p>
                       <File />
                     </div>
-                    <button className="broadcast-btn p-3 rounded-lg text-sm shadow-lg">
-                      Broadcast
-                    </button>
+                    <MirrorButton height={3} width={10} text={"Broadcast"} colorScheme={"primary"} />
+          
                   </div>
                 </div>
               </div>
@@ -183,9 +184,7 @@ const Broadcast = () => {
                       <p className="text-white text-sm">Select File if any</p>
                       <File />
                     </div>
-                    <button className="broadcast-btn p-3 rounded-lg text-sm shadow-lg">
-                      Broadcast
-                    </button>
+                    <MirrorButton height={3} width={10} text={"Broadcast"} colorScheme={"primary"} />
                   </div>
                 </div>
               </div>

@@ -293,48 +293,6 @@ body {
 .adminAnalytics {
   background-color: $secondary;
   box-shadow: 0 2px 30px 3px #0812256c;
-  .reports-btn {
-    width: 10em;
-    height: 3em;
-    margin: 0.5em;
-    background: $primary;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $secondary;
-    border: none;
-    border-radius: 0.625em;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    border: 1px solid $primary;
-  }
-
-  button:hover {
-    color: $primary;
-  }
-
-  button:after {
-    content: "";
-    background: $secondary;
-    position: absolute;
-    z-index: -1;
-    left: -20%;
-    right: -20%;
-    top: 0;
-    bottom: 0;
-    transform: skewX(-45deg) scale(0, 1);
-    transition: all 0.5s;
-  }
-
-  button:hover:after {
-    transform: skewX(-45deg) scale(1, 1);
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-  }
 }
 .card {
   /* From https://css.glass */
@@ -350,82 +308,40 @@ body {
 }
 
 // ===================  ADMIN BROADCAST  ====================
-.Broadcast {
-  background-color: $secondary;
-  box-shadow: 0 2px 30px 3px #0812256c;
-  color: $primary;
-  .Documents-btn
-  .Broadcast-to {
-    background-color: $primary;
-    color: $secondary;
-  }
-}
-
-.broadcast-audience {
-  background-color: $primary;
-  color: $secondary;
-}
-
-.filter {
-  &:hover {
+  .Broadcast {
+    background-color: $secondary;
+    box-shadow: 0 2px 30px 3px #0812256c;
     color: $primary;
-  }
-}
 
-.filter-check {
-  accent-color: #b5c2ca;
-}
-
-.aud {
-  color: $secondary;
-}
-
-.Broadcast {
-  .broadcast-btn {
-    width: 10em;
-    height: 3em;
-    margin: 0.5em;
-    background: $secondary;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $primary;
-    border: none;
-    border-radius: 0.625em;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    border: 1px solid $secondary;
+    .Broadcast-to {
+      background-color: $primary;
+      color: $secondary;
+    }
+    .broadcast-audience {
+      background-color: $primary;
+      color: $secondary;
+    }
+    .filter {
+      &:hover {
+        color: $primary;
+      }
+    }
+    .filter-check {
+      accent-color: gray;
+    }
+    
+    .aud {
+      color: $secondary;
+    }
   }
 
-  .broadcast-btn:hover {
-    color: $secondary;
-  }
 
-  .broadcast-btn:after {
-    content: "";
-    background: $primary;
-    position: absolute;
-    z-index: -1;
-    left: -20%;
-    right: -20%;
-    top: 0;
-    bottom: 0;
-    transform: skewX(-45deg) scale(0, 1);
-    transition: all 0.5s;
-  }
 
-  .broadcast-btn:hover:after {
-    transform: skewX(-45deg) scale(1, 1);
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-  }
-}
+
 
 // ===================  MANAGE LOGINS  ====================
+
+
 
 .manage-logins {
   background-color: $secondary;
@@ -436,7 +352,7 @@ body {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background-color: rgb(20, 20, 20);
+      background-color: $primary;
       border: none;
       font-weight: 600;
       display: flex;
@@ -492,7 +408,7 @@ body {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background-color: rgb(20, 20, 20);
+      background-color: $primary;
       border: none;
       font-weight: 600;
       display: flex;
@@ -552,99 +468,14 @@ body {
 }
 
   }
-  .generate-login-btn {
-    width: 10em;
-    height: 3em;
-    margin: 0.5em;
-    background: $primary;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $secondary;
-    border: none;
-    border-radius: 0.625em;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    border: 1px solid $primary;
-  }
-  .generate-login-btn:hover {
-    color: $primary;
-  }
-  
-  .generate-login-btn:after {
-    content: "";
-    background: $secondary;
-    position: absolute;
-    z-index: -1;
-    left: -20%;
-    right: -20%;
-    top: 0;
-    bottom: 0;
-    transform: skewX(-45deg) scale(0, 1);
-    transition: all 0.5s;
-  }
-  
-  .generate-login-btn:hover:after {
-    transform: skewX(-45deg) scale(1, 1);
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-  }
 }
 
 .generate-logins {
   background-color: $secondary;
   box-shadow: 0 2px 30px 3px #0812256c;
-  .submit-btn {
-    width: 10em;
-    height: 3rem;
-    margin: 0.5em;
-    margin-top: 2rem;
-    background: $secondary;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $primary;
-    border: none;
-    border-radius: 0.625em;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    border: 1px solid $secondary;
-  }
-  
-  .submit-btn:hover {
-    color: $secondary;
-  }
-  
-  .submit-btn:after {
-    content: "";
-    background: $primary;
-    position: absolute;
-    z-index: -1;
-    left: -20%;
-    right: -20%;
-    top: 0;
-    bottom: 0;
-    transform: skewX(-45deg) scale(0, 1);
-    transition: all 0.5s;
-  }
-  
-  .submit-btn:hover:after {
-    transform: skewX(-45deg) scale(1, 1);
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
-  }
   .upload-div{
     background-color: $primary;
     color: $secondary;
-    
   }
 }
 
@@ -656,5 +487,5 @@ body {
 .editProfile{
   background-color: $secondary;
   box-shadow: 0 2px 30px 3px #0812256c;
-  color: $primary;
+  color: $secondary;
 }
