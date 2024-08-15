@@ -15,6 +15,8 @@ import { Link} from "react-router-dom";
 import { ChangeEmail, ChangeName, ChangePhotoUrl } from "@/components/Redux/UserSlice/User";
 import { useDispatch, useSelector } from "react-redux";
 import MirrorButton from "@/components/MirrorButton/MirrorButton";
+import { FaUserPlus } from "react-icons/fa";
+import { MdPublishedWithChanges } from "react-icons/md";
 
 const EditProfile = () => {
   const name = useSelector((state) => state.user.name);
@@ -82,9 +84,13 @@ const EditProfile = () => {
             </div>
           </div>
         </CardContent>
-        <CardFooter className="flex mt-[-1.5rem] justify-end">
+        <CardFooter className="flex mt-[-1.5rem] justify-center ">
             <Link to={"/admin/home"}>
-            <MirrorButton height={3} width={10} text={"Save Changes"} colorScheme={"secondary"} />
+            <button
+              className="flex items-center gap-2 bg-green-600 text-white rounded-lg transition-all duration-200 px-4 py-2 hover:bg-green-500"
+            >
+              <MdPublishedWithChanges /> Save Changes
+            </button>
             </Link>
         </CardFooter>
       </Card>

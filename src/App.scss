@@ -201,7 +201,7 @@ body {
 // ===================  ADMIN   ====================
 
 // ===================  ADMIN HOME  ====================
-.adminHome {
+.adminHome,.supHome {
   background-color: $secondary;
   box-shadow: 0 2px 30px 3px #0812256c;
 
@@ -222,6 +222,9 @@ body {
     .card-name {
       transition: 0.2s all ease-in-out;
     }
+    .card-name-sup {
+      transition: 0.2s all ease-in-out;
+    }
     &:hover .dashboard-icon {
       font-size: 2.5rem;
     }
@@ -229,7 +232,10 @@ body {
       font-size: 2.5rem;
     }
     &:hover .card-name {
-      font-size: 0.8rem;
+      font-size: 85%;
+    }
+    &:hover .card-name-sup {
+      font-size: 130%;
     }
     .goto-arrow {
       transition: 0.2s all ease-in;
@@ -349,10 +355,10 @@ body {
   .buttons {
     /* From Uiverse.io by vinodjangid07 */
     .del-button {
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
-      background-color: $primary;
+      background-color: #d11a2a;
       border: none;
       font-weight: 600;
       display: flex;
@@ -363,10 +369,11 @@ body {
       transition-duration: 0.3s;
       overflow: hidden;
       position: relative;
+      margin-right: 5px;
     }
     
     .svgIcon {
-      width: 17px;
+      width: 14px;
       transition-duration: 0.3s;
     }
     
@@ -378,14 +385,15 @@ body {
       width: 80px;
       border-radius: 50px;
       transition-duration: 0.3s;
-      background-color: #d34e4a;
+      background-color: #d11a2a;
       align-items: center;
     }
     
     .del-button:hover .svgIcon {
-      width: 40px;
+      width: 35px;
       transition-duration: 0.3s;
       transform: translateY(60%);
+      margin-top: 10px;
     }
     
     .del-button::before {
@@ -405,10 +413,10 @@ body {
     }
     /* From Uiverse.io by aaronross1 */ 
     .edit-button {
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
-      background-color: $primary;
+      background-color: #4bb453;
       border: none;
       font-weight: 600;
       display: flex;
@@ -423,7 +431,7 @@ body {
 }
 
 .edit-svgIcon {
-  width: 17px;
+  width: 14px;
   transition-duration: 0.3s;
 }
 
@@ -435,12 +443,12 @@ body {
   width: 80px;
   border-radius: 50px;
   transition-duration: 0.3s;
-  background-color: #68bd69;
+  background-color: #4bb453;
   align-items: center;
 }
 
 .edit-button:hover .edit-svgIcon {
-  width: 20px;
+  width: 14px;
   transition-duration: 0.3s;
   transform: translateY(60%);
   -webkit-transform: rotate(360deg);
@@ -498,3 +506,26 @@ body {
   box-shadow: 0 2px 30px 3px #0812256c;
   color: $primary;
 }
+
+
+
+
+
+
+
+
+
+// ===================  SUPERVISOR   ====================
+
+// ===================  SUPERVISOR HOME  ====================
+
+
+.supHome,.manageProjects,.manageDocuments{
+  background-color: $secondary;
+  box-shadow: 0 2px 30px 3px #0812256c;
+  color: $primary;
+}
+
+
+
+// ===================  SUPERVISOR MANAGE PROJECTS  ====================

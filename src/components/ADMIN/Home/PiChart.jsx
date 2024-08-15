@@ -1,14 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { TrendingUp } from "lucide-react"
+import { useLocation } from "react-router-dom"
 import { Label, Pie, PieChart } from "recharts"
 
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -17,17 +15,22 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-const chartData = [
-  { browser: "active projects", visitors: 163, fill: "var(--color-chrome)" },
-  { browser: "completed projects", visitors: 23, fill: "var(--color-safari)" },
-  { browser: "unassigned students", visitors: 81, fill: "var(--color-firefox)" },
-  { browser: "In-house projects", visitors: 44, fill: "var(--color-edge)" },
+
+const adminChartData = [
+  { category: "active projects", count: 163, fill: "var(--color-chrome)" },
+  { category: "completed projects", count: 23, fill: "var(--color-safari)" },
+  { category: "unassigned students", count: 81, fill: "var(--color-firefox)" },
+  { category: "in-house projects", count: 44, fill: "var(--color-edge)" },
+]
+
+const supervisorChartData = [
+  { category: "web projects", count: 18, fill: "var(--color-chrome)" },
+  { category: "app projects", count: 15, fill: "var(--color-safari)" },
+  { category: "IOT projects", count: 6, fill: "var(--color-firefox)" },
+  { category: "ML projects", count: 2, fill: "var(--color-edge)" },
 ]
 
 const chartConfig = {
-  visitors: {
-    label: "Visitors",
-  },
   chrome: {
     label: "Chrome",
     color: "hsl(var(--chart-1))",
@@ -48,16 +51,21 @@ const chartConfig = {
     label: "Other",
     color: "hsl(var(--chart-5))",
   },
-} 
+}
 
- export default function Component() {
-  const totalVisitors = React.useMemo(() => {
-    return chartData.reduce((acc, curr) => acc + curr.visitors, 0)
-  }, [])
+export default function Component() {
+  const location = useLocation()
+
+  // Determine the chart data based on the current path
+  const chartData = location.pathname === "/supervisor/home" ? supervisorChartData : adminChartData
+
+  const totalProjects = React.useMemo(() => {
+    return chartData.reduce((acc, curr) => acc + curr.count, 0)
+  }, [chartData])
 
   return (
     <Card className="flex flex-col chart">
-      <CardHeader className="items-center pb-0  ">
+      <CardHeader className="items-center pb-0">
         <CardTitle>Projects Distribution</CardTitle>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
@@ -72,8 +80,8 @@ const chartConfig = {
             />
             <Pie
               data={chartData}
-              dataKey="visitors"
-              nameKey="browser"
+              dataKey="count"
+              nameKey="category"
               innerRadius={60}
               strokeWidth={10}
             >
@@ -92,7 +100,7 @@ const chartConfig = {
                           y={viewBox.cy}
                           className="fill-foreground text-3xl font-bold"
                         >
-                          {totalVisitors.toLocaleString()}
+                          {totalProjects.toLocaleString()}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
@@ -110,7 +118,6 @@ const chartConfig = {
           </PieChart>
         </ChartContainer>
       </CardContent>
-     
     </Card>
   )
 }

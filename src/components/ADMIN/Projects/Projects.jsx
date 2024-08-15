@@ -4,45 +4,59 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Projects = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState("name");
 
+  // Sample data for admin and supervisor
   const data = {
-    active: [
-      { name: "Project A", students: ["Alice", "Bob"], progress: 75 },
-      { name: "Project B", students: ["Charlie", "Dave"], progress: 95 },
-      { name: "Project C", students: ["Eve", "Frank"], progress: 25 },
-      // Add more projects as needed
-    ],
-    completed: [
-      { name: "Project H", students: ["Oscar", "Paul"], progress: 100 },
-      // Add more completed projects as needed
-    ],
-    unassigned: [
-      {
-        students: ["Student X"],
-      },
-      {
-        students: ["Student Y"],
-      },
-      {
-        students: ["Student Z"],
-      },
-    ],
-    inhouse: [
-      { name: "In-house Project 1", students: ["Uma", "Victor"], progress: 60 },
-      // Add more in-house projects as needed
-    ],
+    admin: {
+      active: [
+        { name: "Project A", students: ["Alice", "Bob"], progress: 75 },
+        { name: "Project B", students: ["Charlie", "Dave"], progress: 95 },
+        { name: "Project C", students: ["Eve", "Frank"], progress: 25 },
+      ],
+      completed: [
+        { name: "Project H", students: ["Oscar", "Paul"], progress: 100 },
+      ],
+      unassigned: [
+        { students: ["Student X"] },
+        { students: ["Student Y"] },
+        { students: ["Student Z"] },
+      ],
+      inhouse: [
+        { name: "In-house Project 1", students: ["Uma", "Victor"], progress: 60 },
+      ],
+    },
+    supervisor: {
+      groups: [
+        { name: "Web Project 1", students: ["Jake", "Amy"], progress: 80 },
+        { name: "App Project 2", students: ["Rosa", "Terry"], progress: 50 },
+        { name: "IOT Project 3", students: ["Gina", "Boyle"], progress: 70 },
+      ],
+      completed: [
+        { name: "ML Project 1", students: ["Holt", "Gina"], progress: 100 },
+      ],
+    },
   };
 
-  const location = useLocation();
+  // Determine which card was clicked (from location state)
   const selectedCard = location.state?.card || "active";
+  const userRole = location.pathname.includes("supervisor") ? "supervisor" : "admin";
 
+  console.log(userRole);
+  
   const titleMap = {
-    active: "Active Projects",
-    completed: "Completed Projects",
-    unassigned: "Unassigned Students",
-    inhouse: "In-house Projects",
+    admin: {
+      active: "Active Projects",
+      completed: "Completed Projects",
+      unassigned: "Unassigned Students",
+      inhouse: "In-house Projects",
+    },
+    supervisor: {
+      groups: "My Groups",
+      completed: "Completed Projects",
+    },
   };
 
   const handleSearchChange = (e) => {
@@ -53,7 +67,8 @@ const Projects = () => {
     setSortOption(e.target.value);
   };
 
-  const filteredProjects = data[selectedCard]
+  // Filter and sort projects based on user input
+  const filteredProjects = (data[userRole][selectedCard] || [])
     .filter((project) =>
       project.name?.toLowerCase().includes(searchQuery.toLowerCase())
     )
@@ -75,13 +90,13 @@ const Projects = () => {
   return (
     <div className="h-screen flex items-center">
       <div className="adminHome gap-4 h-[85%] w-[69%] ml-[26%] rounded-2xl p-8 flex flex-col relative">
-        <Link to="/admin/home">
+        <Link to={userRole === "supervisor" ? "/supervisor/home" : "/admin/home"}>
           <RxCross2
             size={30}
             className="absolute top-6 right-6 cursor-pointer"
           />
         </Link>
-        <h2 className="text-2xl font-bold mb-4">{titleMap[selectedCard]}</h2>
+        <h2 className="text-2xl font-bold mb-4">{titleMap[userRole][selectedCard]}</h2>
 
         {/* Search Bar */}
         <input
