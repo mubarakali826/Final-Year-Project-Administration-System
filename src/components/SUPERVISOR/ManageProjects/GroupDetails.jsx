@@ -34,13 +34,13 @@ const GroupDetails = () => {
             <div>
               <h3 className="text-xl font-semibold text-yellow-700 flex items-center gap-2">
                 <FaUsers size={20}/> Group Members
-              </h3>
+              </h3>   
               <ul className="list-none mt-2 flex gap-4">
                 {students.map((student, index) => (
                   <li key={index} className="flex items-center gap-2">
-                    <Avatar className="w-12 h-12">
+                    <Avatar className="w-12 h-12 ">
                       <AvatarImage src={student.avatar} alt={student.name} />
-                      <AvatarFallback>{student.name.charAt(0)}</AvatarFallback>
+                      <AvatarFallback className="bg-blue-200">{student.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <span>{student.name}</span>
                   </li>

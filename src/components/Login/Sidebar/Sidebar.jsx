@@ -30,6 +30,7 @@ const Sidebar = () => {
         break;
       case "/admin/analytics":
       case "/supervisor/manage-projects":
+      case "/supervisor/project-details":
         setSelectedItem(2);
         break;
       case "/admin/broadcast":

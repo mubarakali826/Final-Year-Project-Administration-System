@@ -19,6 +19,8 @@ import ManageProjects from './components/SUPERVISOR/ManageProjects.jsx/ManagePro
 import ManageDocuments from './components/SUPERVISOR/ManageDocuments/ManageDocuments';
 import Chat from './components/SUPERVISOR/Chat/Chat';
 import GroupDetails from './components/SUPERVISOR/ManageProjects/GroupDetails';
+import DocumentDetail from './components/SUPERVISOR/ManageDocuments/DocumentDetails';
+import Documents from './components/SUPERVISOR/ManageDocuments/Documents';
 
 export default function App() {
   return (
@@ -28,7 +30,6 @@ export default function App() {
         <Route path="/roles" element={<Roles />} />
 
         {/* ========================= ADMIN ROUTES ======================== */}
-
         <Route path="/admin/home" element={<><AdminHome /><Sidebar/></>} />
         <Route path="/admin/analytics" element={<><AdminAnalytics /><Sidebar/></>} />
         <Route path="/admin/broadcast" element={<><Broadcast /><Sidebar/></>} />
@@ -38,23 +39,25 @@ export default function App() {
         <Route path="/admin/edit-profile" element={<><EditProfile /><Sidebar/></>} />
 
         {/* ========================= LOCAL USER ROUTES ======================== */}
-
         <Route path="/local/home" element={<LocalHome />} />
         <Route path="/local/documents" element={<LocalDocuments />} />
         <Route path="/local/overview" element={<LocalOverview />} />
         <Route path="/" element={<Login/>} />
 
         {/* ========================= SUPERVISOR ROUTES ======================== */}
-        
         <Route path="/supervisor/home" element={<><SupervisorHome /><Sidebar/></>} />
         <Route path="/supervisor/projects" element={<><Projects/><Sidebar/></>} />
         <Route path="/supervisor/manage-projects" element={<><ManageProjects/><Sidebar/></>} />
         <Route path="/supervisor/manage-documents" element={<><ManageDocuments/><Sidebar/></>} />
         <Route path="/supervisor/chat" element={<><Chat/><Sidebar/></>} />
         <Route path="/supervisor/group-details" element={<><GroupDetails/><Sidebar/></>} />
+        <Route path="/supervisor/project-details" element={<><ProjectDetails/><Sidebar/></>} />
 
-
-
+        {/* ========================= DOCUMENT ROUTES ======================== */}
+        <Route path="/supervisor/documents/srs" element={<><Documents type="srs" /><Sidebar/></>} />
+        <Route path="/supervisor/documents/sdd" element={<><Documents type="sdd" /><Sidebar/></>} />
+        <Route path="/supervisor/documents/proposal" element={<><Documents type="proposal" /><Sidebar/></>} />
+        <Route path="/supervisor/document-detail/:id" element={<><DocumentDetail /><Sidebar/></>} />
       </Routes>
     </Router>
   );

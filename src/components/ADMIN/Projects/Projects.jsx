@@ -9,36 +9,137 @@ const Projects = () => {
   const [sortOption, setSortOption] = useState("name");
 
   // Sample data for admin and supervisor
-  const data = {
-    admin: {
-      active: [
-        { name: "Project A", students: ["Alice", "Bob"], progress: 75 },
-        { name: "Project B", students: ["Charlie", "Dave"], progress: 95 },
-        { name: "Project C", students: ["Eve", "Frank"], progress: 25 },
-      ],
-      completed: [
-        { name: "Project H", students: ["Oscar", "Paul"], progress: 100 },
-      ],
-      unassigned: [
-        { students: ["Student X"] },
-        { students: ["Student Y"] },
-        { students: ["Student Z"] },
-      ],
-      inhouse: [
-        { name: "In-house Project 1", students: ["Uma", "Victor"], progress: 60 },
-      ],
-    },
-    supervisor: {
-      groups: [
-        { name: "Web Project 1", students: ["Jake", "Amy"], progress: 80 },
-        { name: "App Project 2", students: ["Rosa", "Terry"], progress: 50 },
-        { name: "IOT Project 3", students: ["Gina", "Boyle"], progress: 70 },
-      ],
-      completed: [
-        { name: "ML Project 1", students: ["Holt", "Gina"], progress: 100 },
-      ],
-    },
-  };
+// Sample data for admin and supervisor
+const data = {
+  admin: {
+    active: [
+      {
+        name: "Project A",
+        students: ["Alice", "Bob","Jia"],
+        progress: 75,
+        techStack: ["React", "Node.js", "MongoDB"],
+        milestones: {
+          current: "Database Design",
+          covered: ["Requirement Gathering", "Initial Setup"],
+        },
+        meetings: 4,
+        overview: "This project is focused on developing a full-stack web application...",
+      },
+      {
+        name: "Project B",
+        students: ["Charlie", "Dave"],
+        progress: 95,
+        techStack: ["Angular", "Express", "MySQL"],
+        milestones: {
+          current: "Testing",
+          covered: ["UI Development", "Backend Integration"],
+        },
+        meetings: 6,
+        overview: "Project B aims to create a scalable enterprise solution...",
+      },
+      {
+        name: "Project C",
+        students: ["Eve", "Frank"],
+        progress: 25,
+        techStack: ["Vue", "Laravel", "PostgreSQL"],
+        milestones: {
+          current: "Wireframing",
+          covered: ["Concept Design"],
+        },
+        meetings: 2,
+        overview: "This project is an e-commerce platform for small businesses...",
+      },
+    ],
+    completed: [
+      {
+        name: "Project H",
+        students: ["Oscar", "Paul"],
+        progress: 100,
+        techStack: ["React", "Django", "SQLite"],
+        milestones: {
+          current: "Completed",
+          covered: ["Deployment", "Final Testing"],
+        },
+        meetings: 8,
+        overview: "A fully completed project focused on AI-based recommendations...",
+      },
+    ],
+    unassigned: [
+      { students: ["Student X"] },
+      { students: ["Student Y"] },
+      { students: ["Student Z"] },
+    ],
+    inhouse: [
+      {
+        name: "In-house Project 1",
+        students: ["Uma", "Victor"],
+        progress: 60,
+        techStack: ["Python", "Flask", "MongoDB"],
+        milestones: {
+          current: "Mid-Development",
+          covered: ["Initial Setup", "Feature Implementation"],
+        },
+        meetings: 3,
+        overview: "An in-house project to develop an internal tool for data analysis...",
+      },
+    ],
+  },
+  supervisor: {
+    groups: [
+      {
+        name: "Web Project 1",
+        students: ["Jake", "Amy"],
+        progress: 80,
+        techStack: ["React", "Redux", "Firebase"],
+        milestones: {
+          current: "Feature Integration",
+          covered: ["UI Design", "Backend Setup"],
+        },
+        meetings: 5,
+        overview: "A web-based project for real-time collaboration...",
+      },
+      {
+        name: "App Project 2",
+        students: ["Rosa", "Terry"],
+        progress: 50,
+        techStack: ["Flutter", "Firebase"],
+        milestones: {
+          current: "UI Development",
+          covered: ["Wireframing"],
+        },
+        meetings: 3,
+        overview: "A cross-platform mobile application for fitness tracking...",
+      },
+      {
+        name: "IOT Project 3",
+        students: ["Gina", "Boyle"],
+        progress: 70,
+        techStack: ["Arduino", "C++", "Python"],
+        milestones: {
+          current: "Sensor Integration",
+          covered: ["Hardware Setup", "Initial Testing"],
+        },
+        meetings: 4,
+        overview: "An IoT project focused on home automation...",
+      },
+    ],
+    completed: [
+      {
+        name: "ML Project 1",
+        students: ["Holt", "Gina","jia"],
+        progress: 100,
+        techStack: ["Python", "TensorFlow", "Keras"],
+        milestones: {
+          current: "Completed",
+          covered: ["Model Training", "Deployment"],
+        },
+        meetings: 7,
+        overview: "A machine learning project for predictive analysis...",
+      },
+    ],
+  },
+};
+
 
   // Determine which card was clicked (from location state)
   const selectedCard = location.state?.card || "active";
