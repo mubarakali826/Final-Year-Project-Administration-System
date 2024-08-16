@@ -2,9 +2,13 @@ import { GoReport } from "react-icons/go";
 import AreaChart from "./AreaCh";
 import Radar from "./Radar";
 import React from "react";
-import { MdBugReport, MdReportGmailerrorred } from "react-icons/md";
+import {
+  MdBugReport,
+  MdPublishedWithChanges,
+  MdReportGmailerrorred,
+} from "react-icons/md";
 import QuickLinks from "../Home/QuickLinks";
-import MirrorButton from "@/components/MirrorButton/MirrorButton";
+import { TbReport } from "react-icons/tb";
 
 const AdminAnalytics = () => {
   return (
@@ -20,9 +24,10 @@ const AdminAnalytics = () => {
                 <Radar />
               </div>
               <div className="flex justify-center items-center mr-10 flex-col gap-2">
-                <div className="card h-[50%] w-[150%] rounded-md">
-                </div>
-              <MirrorButton height={3} width={10} text={"Generate Reports"} colorScheme={"secondary"}/>
+                <div className="card h-[50%] w-[150%] rounded-md"></div>
+                <button className="flex items-center gap-2 bg-teal-600 text-white rounded-lg transition-all duration-200 px-4 py-2 hover:bg-teal-500">
+                  <TbReport /> Generate Reports
+                </button>
               </div>
             </div>
           </div>

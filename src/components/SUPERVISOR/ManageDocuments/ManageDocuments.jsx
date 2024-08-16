@@ -41,7 +41,7 @@ const ManageDocuments = () => {
               <h3 className="text-xl font-semibold">Manage Project Documents</h3>
               <ul className="mt-2">
                 {projectDocuments.map((doc) => (
-                  <li key={doc.id} className="border p-4 rounded-lg mb-2 bg-blue-200">
+                  <li key={doc.id} className="border p-4 rounded-lg mb-2 bg-blue-200 hover:bg-blue-300 cursor-pointer">
                     <h4 className="text-lg font-semibold">{doc.name}</h4>
                     <p className="text-gray-600">Status: {doc.status}</p>
                     <p className="text-gray-600">Last Updated: {doc.lastUpdated}</p>
@@ -57,7 +57,7 @@ const ManageDocuments = () => {
               <h3 className="text-xl font-semibold">Manage Meeting Logs</h3>
               <ul className="mt-2">
                 {meetingLogs.map((log) => (
-                  <li key={log.id} className="border p-4 rounded-lg mb-2 bg-blue-200">
+                  <li key={log.id} className="border p-4 rounded-lg mb-2 bg-blue-200 hover:bg-blue-300 cursor-pointer">
                     <h4 className="text-lg font-semibold">Meeting Date: {log.date}</h4>
                     <p className="text-gray-600">Notes: {log.notes}</p>
                   </li>
@@ -72,7 +72,7 @@ const ManageDocuments = () => {
               <h3 className="text-xl font-semibold">Pending Reviews & Approvals</h3>
               <ul className="mt-2">
                 {pendingReviews.map((review) => (
-                  <li key={review.id} className="border p-4 rounded-lg mb-2 bg-blue-200">
+                  <li key={review.id} className="border p-4 rounded-lg mb-2 bg-blue-200 hover:bg-blue-300 cursor-pointer">
                     <h4 className="text-lg font-semibold">{review.type}</h4>
                     <p className="text-gray-600">Details: {review.details}</p>
                     <p className="text-red-600">Status: {review.status}</p>

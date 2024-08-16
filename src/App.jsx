@@ -18,6 +18,7 @@ import SupervisorHome from './components/SUPERVISOR/Home/SupervisorHome';
 import ManageProjects from './components/SUPERVISOR/ManageProjects.jsx/ManageProjects';
 import ManageDocuments from './components/SUPERVISOR/ManageDocuments/ManageDocuments';
 import Chat from './components/SUPERVISOR/Chat/Chat';
+import GroupDetails from './components/SUPERVISOR/ManageProjects/GroupDetails';
 
 export default function App() {
   return (
@@ -50,6 +51,7 @@ export default function App() {
         <Route path="/supervisor/manage-projects" element={<><ManageProjects/><Sidebar/></>} />
         <Route path="/supervisor/manage-documents" element={<><ManageDocuments/><Sidebar/></>} />
         <Route path="/supervisor/chat" element={<><Chat/><Sidebar/></>} />
+        <Route path="/supervisor/group-details" element={<><GroupDetails/><Sidebar/></>} />
 
 
 

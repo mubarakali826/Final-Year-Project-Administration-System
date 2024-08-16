@@ -54,7 +54,7 @@ const ManageProjects = () => {
                   <h3 className="text-xl font-semibold">CS - FYP1 Projects</h3>
                   <ul className="mt-2">
                     {projectsData.CS.FYP1.map((project) => (
-                      <li key={project.id} className="border p-4 rounded-lg mb-2 bg-blue-200">
+                      <li key={project.id} className="border p-4 rounded-lg mb-2 bg-blue-200 hover:bg-blue-300 cursor-pointer">
                         <h4 className="text-lg font-semibold">{project.name}</h4>
                         <p className="text-gray-600">Students: {project.students.join(', ')}</p>
                       </li>
@@ -67,7 +67,7 @@ const ManageProjects = () => {
                   <h3 className="text-xl font-semibold">CS - FYP2 Projects</h3>
                   <ul className="mt-2">
                     {projectsData.CS.FYP2.map((project) => (
-                      <li key={project.id} className="border p-4 rounded-lg mb-2 bg-blue-200">
+                      <li key={project.id} className="border p-4 rounded-lg mb-2 bg-blue-200 hover:bg-blue-300 cursor-pointer">
                         <h4 className="text-lg font-semibold">{project.name}</h4>
                         <p className="text-gray-600">Students: {project.students.join(', ')}</p>
                       </li>
@@ -92,7 +92,7 @@ const ManageProjects = () => {
                   <h3 className="text-xl font-semibold">SE - FYP1 Projects</h3>
                   <ul className="mt-2">
                     {projectsData.SE.FYP1.map((project) => (
-                      <li key={project.id} className="border p-4 rounded-lg mb-2 bg-blue-200">
+                      <li key={project.id} className="border p-4 rounded-lg mb-2  bg-blue-200 hover:bg-blue-300 cursor-pointer">
                         <h4 className="text-lg font-semibold">{project.name}</h4>
                         <p className="text-gray-600">Students: {project.students.join(', ')}</p>
                       </li>
@@ -105,7 +105,7 @@ const ManageProjects = () => {
                   <h3 className="text-xl font-semibold">SE - FYP2 Projects</h3>
                   <ul className="mt-2">
                     {projectsData.SE.FYP2.map((project) => (
-                      <li key={project.id} className="border p-4 rounded-lg mb-2 bg-blue-200">
+                      <li key={project.id} className="border p-4 rounded-lg mb-2 bg-blue-200 hover:bg-blue-300 cursor-pointer">
                         <h4 className="text-lg font-semibold">{project.name}</h4>
                         <p className="text-gray-600">Students: {project.students.join(', ')}</p>
                       </li>

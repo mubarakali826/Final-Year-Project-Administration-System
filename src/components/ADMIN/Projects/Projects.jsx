@@ -84,7 +84,7 @@ const Projects = () => {
     });
 
   const handleProjectClick = (project) => {
-    navigate("/admin/project-details", { state: { project } });
+    userRole=="admin"?navigate("/admin/project-details", { state: { project } }):navigate("/supervisor/group-details", { state: { project } });
   };
 
   return (
@@ -127,14 +127,14 @@ const Projects = () => {
             filteredProjects.map((item, index) => (
               <button
                 key={index}
-                className="project-item p-4 border rounded-lg shadow-lg text-left hover:bg-gray-200 transition-colors duration-200"
+                className="project-item p-4 border rounded-lg text-left bg-blue-200 hover:bg-blue-300 transition-colors duration-200"
                 onClick={() => handleProjectClick(item)}
               >
                 <h3 className="font-bold">{item.name}</h3>
                 <p className="text-sm text-gray-600">
                   Students: {item.students?.join(", ")}
                 </p>
-                <div className="w-full bg-gray-300 rounded-full h-2.5 mt-2">
+                <div className="w-full bg-blue-50 rounded-full h-2.5 mt-2">
                   <div
                     className="bg-blue-600 h-2.5 rounded-full"
                     style={{ width: `${item.progress}%` }}
