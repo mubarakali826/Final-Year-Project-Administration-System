@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { FaSearch, FaBell } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { RxCross2 } from 'react-icons/rx';
 
 const Documents = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState('ongoing');
+  const navigate=useNavigate();
 
   // Sample data for ongoing and completed projects
   const ongoingDocuments = [
@@ -34,7 +36,12 @@ const Documents = () => {
 
   return (
     <div className="h-screen flex items-center">
-      <div className="manageDocuments gap-4 h-[85%] w-[69%] ml-[26%] rounded-2xl p-8 flex flex-col">
+      <div className="manageDocuments gap-4 h-[85%] w-[69%] ml-[26%] rounded-2xl p-8 flex flex-col relative">
+      <RxCross2
+            size={30}
+            className="absolute top-8 right-[4rem] cursor-pointer"
+            onClick={()=>navigate(-1)}
+          />
       <div className='overflow-y-scroll custom-scrollbar px-5'>
 
         <Tabs defaultValue="ongoing" className="w-full">

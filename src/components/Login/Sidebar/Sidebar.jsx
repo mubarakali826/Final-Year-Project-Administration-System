@@ -20,7 +20,9 @@ const Sidebar = () => {
   const name = useSelector((state) => state.user.name);
   const email = useSelector((state) => state.user.email);
   const photoUrl = useSelector((state) => state.user.photoUrl);
-
+ console.log(location.pathname
+ );
+ 
   useEffect(() => {
     switch (location.pathname) {
       case "/admin/home":
@@ -33,7 +35,9 @@ const Sidebar = () => {
       case "/supervisor/project-details":
         setSelectedItem(2);
         break;
+        
       case "/admin/broadcast":
+      case "/supervisor/documents/sdd":
       case "/supervisor/manage-documents":
         setSelectedItem(3);
         break;
@@ -45,8 +49,7 @@ const Sidebar = () => {
       case "/admin/edit-profile":
         setSelectedItem(5);
         break;
-      default:
-        setSelectedItem(1);
+    
     }
   }, [location.pathname]);
 

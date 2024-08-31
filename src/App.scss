@@ -47,10 +47,10 @@ body {
 
 .loginContainer {
   background-color: $bg;
-  .login-btn{
+  .login-btn {
     background-color: $primary;
     color: $secondary;
-    &:hover{
+    &:hover {
       background-color: $primary-hover;
       color: $secondary;
     }
@@ -107,10 +107,37 @@ body {
 // ===================  LOCAL HOME  ===================
 
 .project-container {
-  background-color: $primary;
-  color: $secondary;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.1);
+  // background-color: $primary;
+  // color: $secondary;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.1);
   transition: 0.2s all ease-in-out;
+  --gap: 0.5em;
+  --radius: 0.35em;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  --dot-bg: #212121;
+  --dot-color: #313131;
+  --dot-size: 2.5px;
+  --dot-space: 22px;
+  background: linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+  border: 0.1em solid #313131;
+  padding: 0.5em;
+  border-radius: var(--radius);
+  box-shadow: 0 0 1em 0.5em rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 
   .project-name,
   .project-members,
@@ -119,7 +146,7 @@ body {
   }
   &:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 5),
-      0 6px 20px rgba(0, 0, 0, 0.9) inset;
+      0 6px 40px rgb(15, 15, 15) inset;
   }
   &:hover .project-members {
     color: #b5c2ca;
@@ -133,43 +160,117 @@ body {
     font-size: 1.1rem;
     color: #b5c2ca;
   }
-  .project-likes {
-    .heart-bg {
-      background: rgba(255, 192, 200, 0);
-      border-radius: 50%;
-      height: 45px;
-      width: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 100ms ease;
-      &:hover {
-        background: rgba(236, 137, 150, 0.3);
-      }
-    }
+  /* From Uiverse.io by SalladShooter */
+  .like-wrapper {
+    --gap: 0.5em;
+    --radius: 0.35em;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    --dot-bg: #212121;
+    --dot-color: #313131;
+    --dot-size: 1px;
+    --dot-space: 22px;
+    background: linear-gradient(
+          90deg,
+          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+          transparent 1%
+        )
+        center / var(--dot-space) var(--dot-space),
+      linear-gradient(
+          var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+          transparent 1%
+        )
+        center / var(--dot-space) var(--dot-space),
+      var(--dot-color);
+    border: 0.1em solid #313131;
+    padding: 0.5em;
+    border-radius: var(--radius);
+    box-shadow: 0 0 1em 0.5em rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
 
-    .likes-count {
-      font-size: 1rem;
-      font-family: "Roboto", sans-serif;
-      color: #b5c2ca;
-      font-weight: 900;
-      margin-left: 4px;
+  .check[type="checkbox"] {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-around;
+    margin-top: -0.25em;
+    margin-bottom: -0.25em;
+  }
+
+  .icon {
+    width: 1.5em;
+    height: 1.5em;
+    // margin-left: 0.5em;
+    fill: white;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .icon.active {
+    display: none;
+    fill: #f52121;
+  }
+
+  .check[type="checkbox"]:checked + .container .icon.active {
+    display: inline-block;
+    animation: wiggle 0.5s ease-in-out;
+  }
+
+  .check[type="checkbox"]:checked + .container .icon.inactive {
+    display: none;
+  }
+
+  .like-text {
+    // margin-left: 0.5em;
+    padding: 0.5em;
+    // color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bolder;
+  }
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(0deg);
     }
-    .heart-icon {
-      height: 100px;
-      width: 100px;
-      background: url("./assets/images/heart.png");
-      cursor: pointer;
-      position: absolute;
-      background-position: left;
+    25% {
+      transform: rotate(-10deg);
     }
-    .heart-icon.liked {
-      animation: like-anim 0.7s steps(28) forwards;
+    50% {
+      transform: rotate(10deg);
     }
-    @keyframes like-anim {
-      to {
-        background-position: right;
-      }
+    75% {
+      transform: rotate(-10deg);
+    }
+  }
+
+  .likes-count {
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+    color: #b5c2ca;
+    font-weight: 900;
+    margin-left: 4px;
+  }
+  .heart-icon {
+    height: 100px;
+    width: 100px;
+    background: url("./assets/images/heart.png");
+    cursor: pointer;
+    position: absolute;
+    background-position: left;
+  }
+  .heart-icon.liked {
+    animation: like-anim 0.7s steps(28) forwards;
+  }
+  @keyframes like-anim {
+    to {
+      background-position: right;
     }
   }
 }
@@ -201,7 +302,8 @@ body {
 // ===================  ADMIN   ====================
 
 // ===================  ADMIN HOME  ====================
-.adminHome,.supHome {
+.adminHome,
+.supHome {
   background-color: $secondary;
   box-shadow: 0 2px 30px 3px #0812256c;
 
@@ -314,40 +416,34 @@ body {
 }
 
 // ===================  ADMIN BROADCAST  ====================
-  .Broadcast {
-    background-color: $secondary;
-    box-shadow: 0 2px 30px 3px #0812256c;
-    color: $primary;
+.Broadcast {
+  background-color: $secondary;
+  box-shadow: 0 2px 30px 3px #0812256c;
+  color: $primary;
 
-    .Broadcast-to {
-      background-color: $primary;
-      color: $secondary;
-    }
-    .broadcast-audience {
-      background-color: $primary;
-      color: $secondary;
-    }
-    .filter {
-      &:hover {
-        color: $primary;
-      }
-    }
-    .filter-check {
-      accent-color: gray;
-    }
-    
-    .aud {
-      color: $secondary;
+  .Broadcast-to {
+    background-color: $primary;
+    color: $secondary;
+  }
+  .broadcast-audience {
+    background-color: $primary;
+    color: $secondary;
+  }
+  .filter {
+    &:hover {
+      color: $primary;
     }
   }
+  .filter-check {
+    accent-color: gray;
+  }
 
-
-
-
+  .aud {
+    color: $secondary;
+  }
+}
 
 // ===================  MANAGE LOGINS  ====================
-
-
 
 .manage-logins {
   background-color: $secondary;
@@ -371,16 +467,16 @@ body {
       position: relative;
       margin-right: 5px;
     }
-    
+
     .svgIcon {
       width: 14px;
       transition-duration: 0.3s;
     }
-    
+
     .svgIcon path {
       fill: white;
     }
-    
+
     .del-button:hover {
       width: 80px;
       border-radius: 50px;
@@ -388,14 +484,14 @@ body {
       background-color: #d11a2a;
       align-items: center;
     }
-    
+
     .del-button:hover .svgIcon {
       width: 35px;
       transition-duration: 0.3s;
       transform: translateY(60%);
       margin-top: 10px;
     }
-    
+
     .del-button::before {
       position: absolute;
       top: -20px;
@@ -404,14 +500,14 @@ body {
       transition-duration: 0.3s;
       font-size: 2px;
     }
-    
+
     .del-button:hover::before {
       font-size: 13px;
       opacity: 1;
       transform: translateY(30px);
       transition-duration: 0.3s;
     }
-    /* From Uiverse.io by aaronross1 */ 
+    /* From Uiverse.io by aaronross1 */
     .edit-button {
       width: 45px;
       height: 45px;
@@ -420,115 +516,99 @@ body {
       border: none;
       font-weight: 600;
       display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
-  cursor: pointer;
-  transition-duration: 0.3s;
-  overflow: hidden;
-  position: relative;
-  text-decoration: none !important;
-}
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+      cursor: pointer;
+      transition-duration: 0.3s;
+      overflow: hidden;
+      position: relative;
+      text-decoration: none !important;
+    }
 
-.edit-svgIcon {
-  width: 14px;
-  transition-duration: 0.3s;
-}
+    .edit-svgIcon {
+      width: 14px;
+      transition-duration: 0.3s;
+    }
 
-.edit-svgIcon path {
-  fill: white;
-}
+    .edit-svgIcon path {
+      fill: white;
+    }
 
-.edit-button:hover {
-  width: 80px;
-  border-radius: 50px;
-  transition-duration: 0.3s;
-  background-color: #4bb453;
-  align-items: center;
-}
+    .edit-button:hover {
+      width: 80px;
+      border-radius: 50px;
+      transition-duration: 0.3s;
+      background-color: #4bb453;
+      align-items: center;
+    }
 
-.edit-button:hover .edit-svgIcon {
-  width: 14px;
-  transition-duration: 0.3s;
-  transform: translateY(60%);
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  transform: rotate(360deg);
-}
+    .edit-button:hover .edit-svgIcon {
+      width: 14px;
+      transition-duration: 0.3s;
+      transform: translateY(60%);
+      -webkit-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
 
-.edit-button::before {
-  display: none;
-  content: "Edit";
-  color: white;
-  transition-duration: 0.3s;
-  font-size: 2px;
-}
+    .edit-button::before {
+      display: none;
+      content: "Edit";
+      color: white;
+      transition-duration: 0.3s;
+      font-size: 2px;
+    }
 
-.edit-button:hover::before {
-  display: block;
-  padding-right: 10px;
-  font-size: 13px;
-  opacity: 1;
-  transform: translateY(0px);
-  transition-duration: 0.3s;
-}
-
+    .edit-button:hover::before {
+      display: block;
+      padding-right: 10px;
+      font-size: 13px;
+      opacity: 1;
+      transform: translateY(0px);
+      transition-duration: 0.3s;
+    }
   }
 }
 
 .generate-logins {
   background-color: $secondary;
   box-shadow: 0 2px 30px 3px #0812256c;
-  .upload-div{
+  .upload-div {
     background-color: $primary;
     color: $secondary;
   }
 }
 
-
-
 // ===================  EDIT PROFILE  ====================
 
-
-.editProfile{
+.editProfile {
   background-color: $secondary;
   box-shadow: 0 2px 30px 3px #0812256c;
   color: $primary;
 }
-
-
 
 // ===================  PROJECT DETAILS  ====================\
 
-
-.projectDetails,.groupDetails{
+.projectDetails,
+.groupDetails {
   background-color: $secondary;
   box-shadow: 0 2px 30px 3px #0812256c;
   color: $primary;
 }
 
-
-
-
-
-
-
-
-
 // ===================  SUPERVISOR   ====================
 
-.supHome,.manageProjects,.manageDocuments,.documentDetail{
+.supHome,
+.manageProjects,
+.manageDocuments,
+.documentDetail {
   background-color: $secondary;
   box-shadow: 0 2px 30px 3px #0812256c;
   color: $primary;
 }
 // ===================  SUPERVISOR HOME  ====================
-
-
-
-
-
 
 // ===================  SUPERVISOR MANAGE DOCUMENTS  ====================

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { GoProjectRoadmap } from "react-icons/go";
+import { TiGroup, TiGroupOutline } from "react-icons/ti";
 import { CiCircleCheck } from "react-icons/ci";
-import { LiaUserClockSolid } from "react-icons/lia";
-import { LuBuilding2 } from "react-icons/lu";
+
 import { FaCircleArrowLeft } from "react-icons/fa6";
 import PiChart from "../../ADMIN/Home/PiChart";
 import RecentActivities from "../../ADMIN/Home/RecentActivities";
@@ -29,7 +28,7 @@ const AdminHome = () => {
             />
             <h1 className="text-white font-bold card-name-sup text-[1.7rem]">My Groups</h1>
             <div className="bottom-div flex items-center absolute bottom-3 gap-10">
-              <GoProjectRoadmap className="text-white dashboard-icon" />
+              <TiGroupOutline className="text-white dashboard-icon" />
               <div className="stat-number text-3xl font-bold text-white mr-8">
                 163
               </div>

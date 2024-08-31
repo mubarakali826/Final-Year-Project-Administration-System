@@ -21,6 +21,7 @@ import Chat from './components/SUPERVISOR/Chat/Chat';
 import GroupDetails from './components/SUPERVISOR/ManageProjects/GroupDetails';
 import DocumentDetail from './components/SUPERVISOR/ManageDocuments/DocumentDetails';
 import Documents from './components/SUPERVISOR/ManageDocuments/Documents';
+import Meetings from './components/SUPERVISOR/ManageDocuments/Meetings';
 
 export default function App() {
   return (
@@ -56,8 +57,11 @@ export default function App() {
         {/* ========================= DOCUMENT ROUTES ======================== */}
         <Route path="/supervisor/documents/srs" element={<><Documents type="srs" /><Sidebar/></>} />
         <Route path="/supervisor/documents/sdd" element={<><Documents type="sdd" /><Sidebar/></>} />
+        <Route path="/supervisor/documents" element={<><Documents type="sdd" /><Sidebar/></>} />
         <Route path="/supervisor/documents/proposal" element={<><Documents type="proposal" /><Sidebar/></>} />
         <Route path="/supervisor/document-detail/:id" element={<><DocumentDetail /><Sidebar/></>} />
+
+        <Route path="/supervisor/documents/meeting" element={<><Meetings /><Sidebar/></>} />
       </Routes>
     </Router>
   );

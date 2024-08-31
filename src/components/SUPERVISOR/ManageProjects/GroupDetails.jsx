@@ -4,7 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FaUsers, FaProjectDiagram, FaExclamationCircle, FaCheckCircle, FaClock, FaComments, FaInfoCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { RxCross2 } from "react-icons/rx";
 
 const GroupDetails = () => {
   const groupAssigned = false;
@@ -18,12 +19,19 @@ const GroupDetails = () => {
   ];
   const deadline = "August 31, 2024";
   const timeRemaining = "15 days";
-
+ const navigate=useNavigate()
   const preMadeMessage = `Please select a project by ${deadline}. Time remaining: ${timeRemaining}.`;
 
   return (
     <div className="h-screen flex items-center justify-center">
-      <div className="groupDetails ml-[21%] gap-4 h-[85%] w-[69%] rounded-2xl p-2 flex flex-col shadow-lg overflow-hidden ">
+      <div className="groupDetails ml-[21%] gap-4 h-[85%] w-[69%] rounded-2xl p-2 flex flex-col shadow-lg overflow-hidden relative">
+     
+          <RxCross2
+            size={30}
+            className="absolute top-6 right-6 cursor-pointer"
+            onClick={()=>navigate(-1)}
+          />
+      
         <Card className="rounded-xl p-6 flex flex-col gap-6 bg-transparent shadow-none border-none">
           <CardHeader>
             <CardTitle className="text-2xl flex items-center gap-2 text-blue-600">
