@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const LocalHome = () => {
+  const navigate=useNavigate();
   const projects = [
     {
       name: "Project Alpha",
@@ -55,7 +57,9 @@ const LocalHome = () => {
     setLikedStates(newLikedStates);
     setLikesCount(newLikesCount);
   };
-
+ const handleNavigate=()=>{
+  navigate("/local/overview")
+ }
   const arrangedProjects = projects
     .map((project, index) => ({
       ...project,
@@ -65,7 +69,7 @@ const LocalHome = () => {
     .sort((a, b) => b.upvotes - a.upvotes);
 
   return (
-    <div className="p-7">
+    <div className="p-7 local-home">
       <div className="searchBar mb-5 flex justify-between items-center gap-2 mt-2 px-6">
         <div className="local-filter cursor-pointer text-gray-800 px-10">
           <FaFilter size={30} />
@@ -84,9 +88,9 @@ const LocalHome = () => {
         {arrangedProjects.map((project, index) => (
           <div
             key={index}
-            className="project-container bg-gray-800 text-gray-200 cursor-pointer gap-7 h-[15rem] flex flex-col justify-center items-center rounded-lg p-4 shadow-md"
+            className="project-container bg-gray-800 text-gray-200 cursor-pointer gap-7 h-[15rem] flex flex-col justify-center items-center rounded-lg  shadow-md"
           >
-            <div className="mt-5 flex flex-col justify-center items-center">
+            <div className="mt-5 flex flex-col justify-center items-center w-full" onClick={handleNavigate}>
               <div className="project-name text-center font-bold text-lg mb-2">
                 {project.name}
               </div>

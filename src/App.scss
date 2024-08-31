@@ -40,7 +40,7 @@ $primary-hover: #050c19;
 }
 
 body {
-  background-color: $bg;
+  // background-color: $bg;
 }
 
 // ===================  LOGIN & ROLES  ===================
@@ -105,9 +105,11 @@ body {
 // ===================  LOCAL USER  ===================
 
 // ===================  LOCAL HOME  ===================
-
+.local-home{
+  background-color: $bg;
+}
 .project-container {
-  // background-color: $primary;
+  
   // color: $secondary;
   // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.1);
   transition: 0.2s all ease-in-out;
@@ -289,14 +291,117 @@ body {
 
 // ===================  LOCAL PROJECT OVERVIEW  ====================
 .local-overview-container {
-  .beyond {
-    background: linear-gradient(to left, #0e435d9a, #5bb7a0);
-
-    .project-details {
-      height: calc(100% - 4rem);
-      background-color: $secondary;
+  background-color: white;
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
     }
   }
+  
+  .beyond {
+    /* From Uiverse.io by MikeAndrewDesigner */
+    width: 50%;
+    height: 88%;
+    
+    --s: 60px;
+    --c1: white;
+    --c2: #A1D6B2;
+    --_g: radial-gradient(
+      25% 25% at 25% 25%,
+      var(--c1) 99%,
+      rgba(0, 0, 0, 0) 101%
+    );
+    background: var(--_g) var(--s) var(--s) / calc(2 * var(--s))
+        calc(2 * var(--s)),
+      var(--_g) 0 0 / calc(2 * var(--s)) calc(2 * var(--s)),
+      radial-gradient(50% 50%, var(--c2) 98%, rgba(0, 0, 0, 0)) 0 0 / var(--s)
+        var(--s),
+      repeating-conic-gradient(var(--c2) 0 50%, var(--c1) 0 100%)
+        calc(0.5 * var(--s)) 0 / calc(2 * var(--s)) var(--s);
+    
+    /* Add the animation */
+    animation: slideIn 1s ease-out forwards;
+  }
+  
+  .project-details {
+    height: calc(100% - 4rem);
+    // background-color: $secondary;
+    width: 100%;
+    height: 100%;
+  background: #fff;
+
+  }
+  /* From Uiverse.io by Sharkotech */ 
+.card {
+  width: 120px;
+  height: 120px;
+  background: rgba(211, 211, 211, 0.199);
+  position: absolute;
+  transition: .3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+#c1 {
+  background-color: #facc15; /* Tailwind's gray-100 */
+}
+
+#c2 {
+  background-color: #10b981; /* Tailwind's teal-400 */
+}
+
+#c3 {
+  background-color: #ef4444; /* Tailwind's red-400 */
+}
+
+#c4 {
+  background-color: #3b82f6; /* Tailwind's blue-400 */
+}
+.main:hover #c1 {
+  transform: translateX(-100px) rotate(-40deg);
+}
+
+.main:hover #c2 {
+  transform: translateX(-50px) rotate(-30deg);
+}
+
+.main:hover #c3 {
+  transform: translateX(0) rotate(-20deg);
+}
+
+.main:hover #c4 {
+  transform: translateX(50px) rotate(-10deg);
+}
+
+#c1:hover {
+  transform: translateX(-150px) rotate(0deg) !important;
+}
+
+#c2:hover {
+  transform: translateX(-100px) rotate(0deg) !important;
+}
+
+#c3:hover {
+  transform: translateX(-50px) rotate(0deg) !important;
+}
+
+#c4:hover {
+  transform: translateX(50px) rotate(0deg) !important;
+}
+
+.main {
+  display: flex;
+  height: 30vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+  
 }
 
 // ===================  ADMIN   ====================
