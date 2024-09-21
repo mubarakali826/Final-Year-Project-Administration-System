@@ -14,8 +14,8 @@ const Sidebar = () => {
   const location = useLocation();
   const [selectedItem, setSelectedItem] = useState(1);
   // const [role, setRole] = useState("student");
-  // const [role, setRole] = useState("admin"); 
-  const [role, setRole] = useState("supervisor");
+  const [role, setRole] = useState("admin"); 
+  // const [role, setRole] = useState("supervisor");
 
   const name = useSelector((state) => state.user.name);
   const email = useSelector((state) => state.user.email);
@@ -120,16 +120,16 @@ const Sidebar = () => {
             </li>
           ))}
         </ul>
-        <div className="user flex items-center justify-center flex-col mt-2 gap-[2px]">
+        <div className="user flex items-center justify-center flex-col mt-1 gap-[0px]">
           <div className="user_avatar">
-            <div className="w-[4.5rem] h-[4.5rem] flex items-center justify-center rounded-full border-2 border-white">
+            <div className="w-[4rem] h-[4rem] flex items-center justify-center rounded-full border-2 border-white">
               <img src={photoUrl} alt="" className="h-full w-full" />
             </div>
           </div>
           <div className="name font-semibold">{name}</div>
           <div className="email text-gray-400 text-[0.7rem]">{email}</div>
           <Link
-            className="mt-1 p-1 px-4 rounded-md bg-green-600 hover:bg-green-500 text-white text-[0.9rem]"
+            className="mt-1 py-[2px] px-7 rounded-md bg-green-600 transition-all hover:bg-green-500 text-white text-[0.8rem]"
             to={"/admin/edit-profile"}
           >
             Edit

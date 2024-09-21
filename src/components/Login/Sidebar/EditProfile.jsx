@@ -42,7 +42,7 @@ const EditProfile = () => {
   return (
     <div className="h-screen flex items-center justify-center">
 
-      <Card className="bg-[#f0f3f4] border-none shadow-none editProfile h-[85%] w-[69%] ml-[21%] rounded-2xl p-8 flex flex-col gap-4">
+      <Card className="bg-[#f0f3f4] border-none shadow-none editProfile h-[85%] w-[69%] ml-[21%] rounded-2xl p-8 flex flex-col gap-3">
         <CardHeader>
           <CardTitle>Edit Profile</CardTitle>
         </CardHeader>
@@ -57,7 +57,7 @@ const EditProfile = () => {
             </Button>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             <div className="flex flex-col">
               <Label htmlFor="name" className="mb-2">
                 Name
