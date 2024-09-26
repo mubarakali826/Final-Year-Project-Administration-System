@@ -14,8 +14,8 @@ const Sidebar = () => {
   const location = useLocation();
   const [selectedItem, setSelectedItem] = useState(1);
   // const [role, setRole] = useState("student");
-  const [role, setRole] = useState("admin"); 
-  // const [role, setRole] = useState("supervisor");
+  // const [role, setRole] = useState("admin"); 
+  const [role, setRole] = useState("supervisor");
 
   const name = useSelector((state) => state.user.name);
   const email = useSelector((state) => state.user.email);

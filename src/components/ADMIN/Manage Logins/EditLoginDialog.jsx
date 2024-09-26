@@ -27,16 +27,16 @@ const EditLoginDialog = ({ userId }) => {
         <DialogHeader>
           <DialogTitle>Edit Login Details</DialogTitle>
           <DialogDescription>
-            Update the email and password for this account.
+            Update the username and password for this account.
           </DialogDescription>
         </DialogHeader>
         <div className="mt-4">
           <label className="block text-sm font-medium text-gray-700">
-            Email
+            Username
           </label>
           <Input
-            type="email"
-            placeholder="Enter email"
+            type="text"
+            placeholder="Enter username"
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
           />
         </div>

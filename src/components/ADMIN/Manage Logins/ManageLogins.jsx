@@ -15,6 +15,7 @@ const ManageLogins = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState("student");
   const [isGenerateLoginVisible, setIsGenerateLoginVisible] = useState(false);
+  const [userType, setUserType] = useState('student');
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -112,89 +113,131 @@ const ManageLogins = () => {
 
     return (
       <div className=" h-screen w-[95%] flex items-center">
-        <div className="generate-logins gap-4 h-[85%] w-[100%] ml-[27.35%] rounded-2xl p-8 flex flex-col relative">
-       
-       <RxCross2
-       onClick={handleGenerateLoginClick}
-       className="absolute top-5 right-5 cursor-pointer" size={30}/>
-      
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold text-green-700 mb-2">
-              Generate Logins
-            </h2>
-            <p className="text-gray-600">
-              Add individual login details or upload an Excel file for bulk
-              generation.
-            </p>
-          </div>
+       <div className="generate-logins gap-4 h-[85%] w-[100%] ml-[27.35%] rounded-2xl p-8 flex flex-col relative">
+  <RxCross2
+    onClick={handleGenerateLoginClick}
+    className="absolute top-5 right-5 cursor-pointer"
+    size={30}
+  />
 
-          {/* Individual Login Generation */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold text-gray-700 mb-4">
-              Generate Single Login
-            </h3>
-            <div className="flex gap-4 mb-4">
-              <input
-                type="text"
-                className="w-1/2 border border-gray-300 rounded-lg p-4 focus:ring focus:ring-green-300 focus:border-green-500"
-                placeholder="Enter Roll Number"
-                value={rollNumber}
-                onChange={(e) => setRollNumber(e.target.value)}
-              />
-              <input
-                type="email"
-                className="w-1/2 border border-gray-300 rounded-lg p-4 focus:ring focus:ring-green-300 focus:border-green-500"
-                placeholder="Enter Email Address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <button
-              className="flex items-center gap-2 bg-green-600 text-white rounded-lg px-4 py-2 hover:bg-green-500"
-              onClick={handleGenerateLogin}
-            >
-              <FaUserPlus /> Generate and Send Login
-            </button>
-          </div>
+  <div className="mb-6">
+    <h2 className="text-2xl font-bold text-green-700 mb-2">Generate Logins</h2>
+    <p className="text-gray-600">
+      Add individual login details or upload an Excel file for bulk generation.
+    </p>
 
-          <hr className="my-3 border-gray-300" />
+    {/* Radio Buttons for Student/Supervisor */}
+    <div className="mt-4">
+      <label className="mr-4">
+        <input
+          type="radio"
+          value="student"
+          checked={userType === 'student'}
+          onChange={() => setUserType('student')}
+          className="mr-2"
+        />
+        Student
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="supervisor"
+          checked={userType === 'supervisor'}
+          onChange={() => setUserType('supervisor')}
+          className="mr-2"
+        />
+        Supervisor
+      </label>
+    </div>
+  </div>
 
-          {/* Bulk Login Generation */}
-          <div>
-            <h3 className="text-lg font-semibold text-gray-700 mb-4">
-              Bulk Login Generation
-            </h3>
-            <div className="flex items-center  gap-10 mb-4">
-              <input
-                type="file"
-                id="bulkUpload"
-                className="hidden"
-                accept=".xlsx, .xls"
-                onChange={(e) => setFile(e.target.files[0])}
-              />
-              <label
-                htmlFor="bulkUpload"
-                className="cursor-pointer flex items-center gap-2 text-green-600"
-              >
-                <FaFileExcel /> {file ? file.name : <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger>Attach a document</TooltipTrigger>
-                  <TooltipContent  className=" text-yellow-500 bg-transparent border-none shadow-none ">
-                    <p>Document format must be xls or xlsx</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>}
-              </label>
-              <button
-                className="flex items-center cursor-pointer gap-2 bg-green-600 text-white rounded-lg px-4 py-2 hover:bg-green-500"
-                onClick={handleBulkUpload}
-                disabled={!file}
-              >
-                <FaPaperPlane /> Generate and Send Bulk Logins
-              </button>
-            </div>
-          </div>
-        </div>
+  {/* Individual Login Generation */}
+  <div className="mb-8">
+    <h3 className="text-lg font-semibold text-gray-700 mb-4">Generate Single Login</h3>
+    
+    {/* Conditional Rendering Based on User Type */}
+    {userType === 'student' ? (
+      <div className="flex gap-4 mb-4">
+        <input
+          type="text"
+          className="w-1/2 border border-gray-300 rounded-lg p-4 focus:ring focus:ring-green-300 focus:border-green-500"
+          placeholder="Enter Roll Number"
+          value={rollNumber}
+          onChange={(e) => setRollNumber(e.target.value)}
+        />
+        <input
+          type="email"
+          className="w-1/2 border border-gray-300 rounded-lg p-4 focus:ring focus:ring-green-300 focus:border-green-500"
+          placeholder="Enter Email Address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+    ) : (
+      <div className="flex gap-4 mb-4">
+        <input
+          type="text"
+          className="w-1/2 border border-gray-300 rounded-lg p-4 focus:ring focus:ring-green-300 focus:border-green-500"
+          placeholder="Enter Username"
+
+        />
+        <input
+          type="email"
+          className="w-1/2 border border-gray-300 rounded-lg p-4 focus:ring focus:ring-green-300 focus:border-green-500"
+          placeholder="Enter Email Address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+    )}
+
+    <button
+      className="flex items-center gap-2 bg-green-600 text-white rounded-lg px-4 py-2 hover:bg-green-500"
+      onClick={handleGenerateLogin}
+    >
+      <FaUserPlus /> Generate and Send Login
+    </button>
+  </div>
+
+  <hr className=" border-gray-300" />
+
+  {/* Bulk Login Generation */}
+  <div>
+    <h3 className="text-lg font-semibold text-gray-700 mb-4">Bulk Login Generation</h3>
+    <div className="flex items-center gap-10 mb-4">
+      <input
+        type="file"
+        id="bulkUpload"
+        className="hidden"
+        accept=".xlsx, .xls"
+        onChange={(e) => setFile(e.target.files[0])}
+      />
+      <label
+        htmlFor="bulkUpload"
+        className="cursor-pointer flex items-center gap-2 text-green-600"
+      >
+        <FaFileExcel /> {file ? file.name : (
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>Attach a document</TooltipTrigger>
+              <TooltipContent className="text-yellow-500 bg-transparent border-none shadow-none">
+                <p>Document format must be xls or xlsx</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        )}
+      </label>
+      <button
+        className="flex items-center cursor-pointer gap-2 bg-green-600 text-white rounded-lg px-4 py-2 hover:bg-green-500"
+        onClick={handleBulkUpload}
+        disabled={!file}
+      >
+        <FaPaperPlane /> Generate and Send Bulk Logins
+      </button>
+    </div>
+  </div>
+</div>
+
       </div>
     );
   };

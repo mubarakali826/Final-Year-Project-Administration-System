@@ -40,9 +40,9 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="h-screen flex items-center ">
 
-      <Card className="bg-[#f0f3f4] border-none shadow-none editProfile h-[85%] w-[69%] ml-[21%] rounded-2xl p-8 flex flex-col gap-3">
+      <Card className="editProfile gap-4 h-[85%] w-[69%] ml-[26%] rounded-2xl p-8 flex flex-col" style={{backgroundColor:"#f0f3f4",boxShadow:"0 2px 30px 3px #0812256c",color:"#081225"}}>
         <CardHeader>
           <CardTitle>Edit Profile</CardTitle>
         </CardHeader>

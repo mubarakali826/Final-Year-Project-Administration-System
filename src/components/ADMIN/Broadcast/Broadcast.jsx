@@ -7,6 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { RxCross2 } from "react-icons/rx";
 
 const BroadcastModule = () => {
   const [selectedTarget, setSelectedTarget] = useState("all");
@@ -28,6 +29,7 @@ const BroadcastModule = () => {
   return (
     <div className="h-screen flex items-center">
       <div className="Broadcast gap-4 h-[85%] w-[69%] ml-[26%] rounded-2xl p-8 flex flex-col">
+      
         <div className="mb-4">
           <h2 className="text-xl font-semibold text-blue-600">
             Broadcast Message

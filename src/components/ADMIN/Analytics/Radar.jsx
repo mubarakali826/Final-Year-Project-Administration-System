@@ -3,25 +3,25 @@ import { Radar, RadarChart, PolarGrid,
     PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 const radar = () => {
     const data = [
-        { name: 'A', x: 21 },
-        { name: 'B', x: 22 },
-        { name: 'C', x: -32 },
-        { name: 'D', x: -14 },
-        { name: 'E', x: -51 },
-        { name: 'F', x: 16 },
-        { name: 'G', x: 7 },
-        { name: 'H', x: -8 },
-        { name: 'I', x: 9 },
+        { name: 'AR', x: 21 },
+        { name: 'Web dev', x: 22 },
+        { name: 'ML', x: -32 },
+        { name: 'AI', x: -14 },
+        { name: 'Android', x: 10 },
+        { name: 'Desktop', x: -100 },
+        { name: 'IOS', x: 7 },
+        { name: 'IOT', x: -8 },
+        { name: 'Cross platfrom ', x: 9 },
     ];
  
   return (
        <RadarChart height={250} width={250} 
-            outerRadius="80%" data={data}>
+            outerRadius="90%" data={data} className='text-[0.48rem]'>
             <PolarGrid />
-            <PolarAngleAxis dataKey="name" />
+            <PolarAngleAxis dataKey="name"/>
             <PolarRadiusAxis />
             <Radar dataKey="x" stroke="teal"
-                fill="#021b48" fillOpacity={0.5} />
+                fill="#021b48" fillOpacity={0.6} />
         </RadarChart>
   )
 }
